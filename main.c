@@ -1,4 +1,5 @@
 #include <stdio.h>
+<<<<<<< HEAD
 #include <stdlib.h>
 #include <stdbool.h>
 #include <math.h>
@@ -57,3 +58,19 @@ void Challenge4_some_and_triple(){
 
 
 
+=======
+int sum(int a,int b){
+    return a+b;
+}
+
+int main()
+{
+    printf("enter two  numbers");
+    int a,b;
+    scanf("%d %d",&a,&b);
+    
+    printf("%d+%d=%d",a,b,sum(a,b));
+    
+    return 0;
+}
+>>>>>>> 8680a419e9db1bbc2524b074879fd1217b4afa04
