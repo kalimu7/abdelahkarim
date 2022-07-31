@@ -59,18 +59,39 @@ void Challenge4_some_and_triple(){
 
 
 =======
+//challenge1: partie function
+//challenge2:
+#include <stdio.h>
+//first challenge;
 int sum(int a,int b){
     return a+b;
+}
+//second challenge;
+int echanger(int x,int y){
+    int z;
+    z=x;
+    x=y;
+    y=z;
+    printf("x=%d,y=%d",x,y);
 }
 
 int main()
 {
+    //first challenge;
     printf("enter two  numbers");
     int a,b;
     scanf("%d %d",&a,&b);
-    
     printf("%d+%d=%d",a,b,sum(a,b));
+    //seconf challenge
+    int x,y;
+    printf("enter first value x:\n");
+    scanf("%d",&x);
+    printf("enter second value y:\n");
+    scanf("%d",&y);
+    printf("x= %d and y= %d\n",x,y);
+     echanger(x,y);//still have to do it with pointers;
     
     return 0;
 }
+
 >>>>>>> 8680a419e9db1bbc2524b074879fd1217b4afa04
