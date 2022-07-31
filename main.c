@@ -68,6 +68,7 @@ void Challenge5_Equation_deuxieme_degre(){
      printf("enter c : "); scanf("%d" , &c);
 
 
+<<<<<<< HEAD
 
      delta =(double) (b*b) - (4*a*c);
 
@@ -88,7 +89,47 @@ void Challenge6_Palindrome(){
     scanf("%[^\n]s",str);
     printf("%s\n",str);
     printf("%d" , sizeof(str));
+=======
+=======
+//challenge1: partie function
+//challenge2:
+#include <stdio.h>
+//first challenge;
+int sum(int a,int b){
+    return a+b;
+>>>>>>> 87e9f27533c1349b2218ac76361ef5ea42112102
+}
+//second challenge;
+int echanger(int x,int y){
+    int z;
+    z=x;
+    x=y;
+    y=z;
+    printf("x=%d,y=%d",x,y);
 }
 
+<<<<<<< HEAD
 
 
+=======
+int main()
+{
+    //first challenge;
+    printf("enter two  numbers");
+    int a,b;
+    scanf("%d %d",&a,&b);
+    printf("%d+%d=%d",a,b,sum(a,b));
+    //seconf challenge
+    int x,y;
+    printf("enter first value x:\n");
+    scanf("%d",&x);
+    printf("enter second value y:\n");
+    scanf("%d",&y);
+    printf("x= %d and y= %d\n",x,y);
+     echanger(x,y);//still have to do it with pointers;
+    
+    return 0;
+}
+
+>>>>>>> 8680a419e9db1bbc2524b074879fd1217b4afa04
+>>>>>>> 87e9f27533c1349b2218ac76361ef5ea42112102
