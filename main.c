@@ -1,14 +1,16 @@
 #include <stdio.h>
-<<<<<<< HEAD
 #include <stdlib.h>
 #include <stdbool.h>
 #include <math.h>
+#include<string.h>
 
 int main()
 {
     //Challenge_Paire_Impaire();
     //Challenge3_PermutationSousConditions();
-    Challenge4_some_and_triple();
+    //Challenge4_some_and_triple();
+    //Challenge5_Equation_deuxieme_degre();
+    Challenge6_Palindrome();
 
 }
 
@@ -56,21 +58,37 @@ void Challenge4_some_and_triple(){
         printf("the triple of  %d = %d" , n1, 3*n1);
 }
 
+void Challenge5_Equation_deuxieme_degre(){
+     printf("a*X*X + b*X + C = 0 \n");
+     int a , b , c ;
+     double delta , x1 , x2;
+
+     printf("enter a : "); scanf("%d" , &a);
+     printf("enter b : "); scanf("%d" , &b);
+     printf("enter c : "); scanf("%d" , &c);
 
 
-=======
-int sum(int a,int b){
-    return a+b;
+
+     delta =(double) (b*b) - (4*a*c);
+
+     if(delta == 0){
+        x1 = (double) (-b)/(2*a);
+        printf("X = %lf" ,x1 );
+     }
+     else if(delta > 0){
+         x1 = (double) (-b - sqrt(delta))/(2*a);
+         x2 = (double) (-b + sqrt(delta))/(2*a);
+         printf("X1 = %lf\t" , x1);
+         printf("X2 = %lf\n" ,  x2);
+
+     }
+}
+void Challenge6_Palindrome(){
+    char str[100];
+    scanf("%[^\n]s",str);
+    printf("%s\n",str);
+    printf("%d" , sizeof(str));
 }
 
-int main()
-{
-    printf("enter two  numbers");
-    int a,b;
-    scanf("%d %d",&a,&b);
-    
-    printf("%d+%d=%d",a,b,sum(a,b));
-    
-    return 0;
-}
->>>>>>> 8680a419e9db1bbc2524b074879fd1217b4afa04
+
+
