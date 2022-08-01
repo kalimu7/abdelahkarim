@@ -1,12 +1,12 @@
-#include <stdio.h>
+ #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <math.h>
+#include <math.h>mm
 #include<string.h>
 
 int main()
 {
-    //Challenge_Paire_Impaire();
+    //Challenge1_Paire_Impaire();
     //Challenge3_PermutationSousConditions();
     //Challenge4_some_and_triple();
     //Challenge5_Equation_deuxieme_degre();
@@ -14,20 +14,15 @@ int main()
 
 }
 
+
 void Challenge1_Paire_Impaire(){
 	int number;
-	bool isPaire = false;
 	printf("enter your number : ");
 	scanf("%d" , &number);
 
-	for(int i =2 ; i <=sqrt(number) ; i++){
-		if(number%i == 0){
-			isPaire = true;
-			break;
-		}
-	}
 
-	if(isPaire)
+
+	if(number%2 == 0)
         printf("this number is paire");
     else
         printf("this number is not paire");
@@ -68,7 +63,7 @@ void Challenge5_Equation_deuxieme_degre(){
      printf("enter c : "); scanf("%d" , &c);
 
 
-<<<<<<< HEAD
+
 
      delta =(double) (b*b) - (4*a*c);
 
@@ -84,21 +79,79 @@ void Challenge5_Equation_deuxieme_degre(){
 
      }
 }
+
+
 void Challenge6_Palindrome(){
-    char str[100];
-    scanf("%[^\n]s",str);
-    printf("%s\n",str);
-    printf("%d" , sizeof(str));
-=======
-=======
-//challenge1: partie function
-//challenge2:
-#include <stdio.h>
-//first challenge;
-int sum(int a,int b){
-    return a+b;
->>>>>>> 87e9f27533c1349b2218ac76361ef5ea42112102
+    char Mot[100] = "abdellah el hilaly";
+    int tille = strlen(Mot);
+
+    printf("enter une mot SVP : ");
+    gets(Mot);
+    tille = strlen(Mot);
+    char MotInv[tille];
+
+    for(int i = 0 ; i < tille ; i++){
+        MotInv[tille - i -1] = Mot[i];
+    }
+
+
+
+    if(strcmp(Mot , MotInv))
+        puts("this mot est non Palindrome\n");
+
+    else
+        puts("this mot est Palindrome\n");
+
+    puts(Mot);
+    puts(MotInv);
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void ChallengeX_Prime_numbers(){
+	int number;
+	bool isPrime = false;
+	printf("enter your number : ");
+	scanf("%d" , &number);
+
+	for(int i =2 ; i <=sqrt(number) ; i++){
+		if(number%i == 0){
+			isPrime = true;
+			break;
+		}
+	}
+
+	if(isPrime)
+        printf("this number is Prime");
+    else
+        printf("this number is not Prime");
+}
+
+
+
+
+
+//___________________________________________________________________________________________________________ karime challenges
 //second challenge;
 int echanger(int x,int y){
     int z;
@@ -108,28 +161,7 @@ int echanger(int x,int y){
     printf("x=%d,y=%d",x,y);
 }
 
-<<<<<<< HEAD
-
-
-=======
-int main()
-{
-    //first challenge;
-    printf("enter two  numbers");
-    int a,b;
-    scanf("%d %d",&a,&b);
-    printf("%d+%d=%d",a,b,sum(a,b));
-    //seconf challenge
-    int x,y;
-    printf("enter first value x:\n");
-    scanf("%d",&x);
-    printf("enter second value y:\n");
-    scanf("%d",&y);
-    printf("x= %d and y= %d\n",x,y);
-     echanger(x,y);//still have to do it with pointers;
-    
-    return 0;
+//first  challenge;
+int sum(int a,int b){
+    return a+b;
 }
-
->>>>>>> 8680a419e9db1bbc2524b074879fd1217b4afa04
->>>>>>> 87e9f27533c1349b2218ac76361ef5ea42112102
