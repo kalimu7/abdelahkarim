@@ -1,7 +1,7 @@
  #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <math.h>mm
+#include <math.h>
 #include<string.h>
 
 int main()
@@ -165,3 +165,59 @@ int echanger(int x,int y){
 int sum(int a,int b){
     return a+b;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Ayoub Challenges:
+
+//First Challenge: (Fahrenheit --> Celesius)
+
+int farthoCls (){
+	int degree;
+	printf("Enter a Fahrenheit degree to convert: ");
+	scanf("%d", &degree);
+	int result = (degree-32)/1.8;
+	printf("%d Celsius \n" , result);
+		
+	if(result <= 0){
+		printf("très froid");
+	}else if (result <= 25){
+		printf("froid");
+	}else if (result <= 35){
+		printf("Chaud");
+	}else if(result > 35){
+		printf("tres chaud");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
