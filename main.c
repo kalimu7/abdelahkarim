@@ -186,9 +186,10 @@ int sum(int a,int b){
 
 //Ayoub Challenges:
 
+//Chapter I : conditions
 //First Challenge: (Fahrenheit --> Celesius)
 
-int farthoCls (){
+void farthtoCls (){
 	int degree;
 	printf("Enter a Fahrenheit degree to convert: ");
 	scanf("%d", &degree);
@@ -204,6 +205,23 @@ int farthoCls (){
 	}else if(result > 35){
 		printf("tres chaud");
 	}
+}
+
+// Second Challenge: (Paire ou Impaire)
+
+void Paire_Impaire(){
+	
+	int num;
+	printf("enter your number: ");
+	scanf("%d", &num);
+	int numtest = num % 2;
+	
+	if(numtest == 1){
+		printf("impaire");
+	} else if(numtest == 0){
+		printf("paire");
+	}
+
 }
 
 
