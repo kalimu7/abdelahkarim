@@ -187,7 +187,7 @@ int sum(int a,int b){
 //Ayoub Challenges:
 
 //Chapter I : conditions
-//First Challenge: (Fahrenheit --> Celesius)
+// First Challenge: (Fahrenheit --> Celesius)
 
 void farthtoCls (){
 	int degree;
@@ -243,8 +243,21 @@ void Permutation(){
 	
 }
 
+// 4th Challenge: (somme ou triple de somme de deux entieres)
 
-
+void sommeoutriple(){
+	int n1, n2;
+	printf("Enter your first number: ");
+	scanf("%d", &n1);
+	printf("Enter your second number: ");
+	scanf("%d", &n2);
+	
+	if (n1 == n2){
+		printf("Le triple de leur somme = %d", (n1 + n2)*3);
+	} else {
+		printf("la somme = %d", n1+n2);
+	}
+}
 
 
 
