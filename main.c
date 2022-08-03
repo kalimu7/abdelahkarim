@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <math.h>mm
+#include <math.h>
 #include<string.h>
 #include <time.h>
 
@@ -335,3 +335,96 @@ int echanger(int x,int y){
 int sum(int a,int b){
     return a+b;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Ayoub Challenges:
+
+//Chapter I : conditions
+//First Challenge: (Fahrenheit --> Celesius)
+
+void farthtoCls (){
+	int degree;
+	printf("Enter a Fahrenheit degree to convert: ");
+	scanf("%d", &degree);
+	int result = (degree-32)/1.8;
+	printf("%d Celsius \n" , result);
+		
+	if(result <= 0){
+		printf("très froid");
+	}else if (result <= 25){
+		printf("froid");
+	}else if (result <= 35){
+		printf("Chaud");
+	}else if(result > 35){
+		printf("tres chaud");
+	}
+}
+
+// Second Challenge: (Paire ou Impaire)
+
+void Paire_Impaire(){
+	
+	int num;
+	printf("enter your number: ");
+	scanf("%d", &num);
+	int numtest = num % 2;
+	
+	if(numtest == 1){
+		printf("impaire");
+	} else if(numtest == 0){
+		printf("paire");
+	}
+}
+
+// Third Challenge: (Permutation sous condition)
+
+void Permutation(){
+	
+	int n1, n2;
+	printf("Enter your first number: ");
+	scanf("%d", &n1);
+	printf("Enter your second number: ");
+	scanf("%d", &n2);
+	
+	if(n1 < n2){
+		printf("%d est inferieur que %d", n2, n1);
+	} else if (n1 > n2){
+		printf("%d est inferieur que %d", n1, n2);
+	} else {
+		printf("les deux valeurs sont identiques");
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
