@@ -48,3 +48,60 @@ int main()
     }
     return 0;
 }
+//challenge changing the date 15/10/2022 to 15/october/2022
+#include <stdio.h>
+
+int main()
+{
+    int d,m,y;
+ 
+   printf("enter a date under this type:day/mounth/year\n");
+   scanf("%d %d %d",&d,&m,&y);
+   if(m==1){
+        char mounth[] = "january";
+        printf("%d/%s/%d",d,mounth,y);
+   }else if(m==2){
+        char mounth[] = "feb";
+        printf("%d/%s/%d",d,mounth,y);
+   }else if(m==3){
+        char mounth[] = "march";
+        printf("%d/%s/%d",d,mounth,y);
+       
+   }else if(m==4){
+        char mounth[] = "april";
+        printf("%d/%s/%d",d,mounth,y);
+       
+   }else if(m==5){
+        char mounth[] = "may";
+        printf("%d/%s/%d",d,mounth,y);
+       
+   }else if(m==6){
+        char mounth[] = "june";
+        printf("%d/%s/%d",d,mounth,y);
+       
+   }else if(m==7){
+        char mounth[] = "july";
+        printf("%d/%s/%d",d,mounth,y);
+       
+   }else if(m==8){
+        char mounth[] = "augest";
+        printf("%d/%s/%d",d,mounth,y);
+       
+   }else if(m==9){
+        char mounth[] = "september";
+        printf("%d/%s/%d",d,mounth,y);
+       
+   }else if(m==10){
+        char mounth[] = "october";
+        printf("%d/%s/%d",d,mounth,y);
+       
+   }else if(m==11){
+        char mounth[] = "november";
+        printf("%d/%s/%d",d,mounth,y);
+       
+   }else if(m==12){
+        char mounth[] = "december";
+        printf("%d/%s/%d",d,mounth,y);
+       
+   }
+   
