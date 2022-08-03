@@ -429,6 +429,41 @@ void sommeoutriple(){
 	}
 }
 
+// 5th Challenge: (Calculer une equation de deuxieme degree)
+
+void 2ndEquation(){
+	
+	printf("Equation de deuxieme degree: aX +/- bX +/- C \n");
+	int a, b, c;
+	double delta, x1, x2;
+
+	printf("Enter a : ");
+	scanf("%d", &a);
+	printf("Enter b : ");
+	scanf("%d", &b);
+	printf("Enter c : ");
+	scanf("%d", &c);
+	
+	delta = (pow(b, 2)) - ((4*a)*c);
+	printf("delta = %.0f \n", delta);
+	
+	if (delta > 0) {
+		printf("delta > 0, the equation have two solutions \n");
+		
+		x1 = (-b + sqrt(delta))/(2*a);
+		printf("the first solution: %.2f \n", x1);
+		
+		x2 = (-b - sqrt(delta))/(2*a);
+		printf("the second solution: %.2f \n", x2);
+	} else if (delta == 0){
+		printf("delta = 0, the equation have one solution \n");
+		
+		x1 = (-b)/(2*a);
+		printf("the solution: %.2f", x1);		
+	}else{
+		printf("delta < 0, il n'y a pas de solution");
+	}
+}
 
 
 
