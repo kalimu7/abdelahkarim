@@ -14,7 +14,8 @@ int main()
     //Challenge6_Palindrome();
     //Challenge7_EleveMention();
     //Challenge8_Alphabet();
-    Challenge9_DateFormate();
+    //Challenge9_DateFormate();
+    Challenge10_RandomeDay();
 
 }
 
@@ -282,6 +283,34 @@ void ConverstMont(int MM , char cnvMM[]){
 }
 
 
+void Challenge10_RandomeDay(){
+
+    char str[1];
+    time_t t;
+
+   /* Intializes random number generator */
+   srand((unsigned) time(&t));
+
+   printf("s : show random day       other : exit\n");
+   gets(str);
+
+   if (strcmp(str , "s") == 0){
+        puts("");
+        if((rand() % 7) == 0) puts("Monday");
+        else if((rand() % 7) == 1) puts("Tuesday");
+        else if((rand() % 7) == 2) puts("Wednesday");
+        else if((rand() % 7) == 3) puts("Thursday");
+        else if((rand() % 7) == 4) puts("Friday");
+        else if((rand() % 7) == 5) puts("Saturday");
+        else if((rand() % 7) == 6) puts("Sunday");
+        else puts("ERROR !!! "); // had l error ma3raftch min kayji hhhhhhhh
+        puts("");
+        Challenge10_RandomeDay(); // bach yb9a dima 5edem
+   }
+
+}
+
+
 
 
 
@@ -367,7 +396,7 @@ void farthtoCls (){
 	printf("%d Celsius \n" , result);
 		
 	if(result <= 0){
-		printf("très froid");
+		printf("trï¿½s froid");
 	}else if (result <= 25){
 		printf("froid");
 	}else if (result <= 35){
