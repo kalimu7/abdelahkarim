@@ -221,7 +221,26 @@ void Paire_Impaire(){
 	} else if(numtest == 0){
 		printf("paire");
 	}
+}
 
+// Third Challenge: (Permutation sous condition)
+
+void Permutation(){
+	
+	int n1, n2;
+	printf("Enter your first number: ");
+	scanf("%d", &n1);
+	printf("Enter your second number: ");
+	scanf("%d", &n2);
+	
+	if(n1 < n2){
+		printf("%d est inferieur que %d", n2, n1);
+	} else if (n1 > n2){
+		printf("%d est inferieur que %d", n1, n2);
+	} else {
+		printf("les deux valeurs sont identiques");
+	}
+	
 }
 
 
