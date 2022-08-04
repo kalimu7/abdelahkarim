@@ -465,6 +465,26 @@ void 2ndEquation(){
 	}
 }
 
+void palindrome(){
+	char str[50];
+	printf("Enter your word: ");
+	scanf("%s", &str);
+	
+	int j;
+	
+	for(int i = 0; i < strlen(str); i++){
+		if(str[i] == strrev(str)[i]){
+			j++;
+		}
+	}
+	
+	if(j == strlen(str)){
+		printf("le mot est un palindrome");
+	} else {
+		printf("le mot n'est pas un palindrome");
+	}
+}
+
 
 
 
