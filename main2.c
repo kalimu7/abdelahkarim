@@ -105,3 +105,39 @@ int main()
        
    }
    
+   //challenge 10 //random day of the week
+   #include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    for(int i =0;i<20;i++){
+    //printf("Hello, World!\n");
+    int random;
+    random = rand() % 7;
+    //printf("%d\n",random);
+    switch (random) {
+        case 0:
+            printf("monday\n");
+            break;
+        case 1:
+            printf("tuesday\n");
+            break;
+        case 2:
+            printf("wensday\n");
+            break;
+        case 3:
+            printf("thursday\n");
+            break;
+        case 4:
+            printf("friday\n");
+            break;
+        case 5:
+            printf("saturday\n");
+            break;
+        case 6:
+            printf("sunday\n");
+            break;
+    }
+    }
+    return 0;
+}

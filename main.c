@@ -1,4 +1,4 @@
-#include <stdio.h>
+  #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <math.h>
@@ -14,7 +14,10 @@ int main()
     //Challenge6_Palindrome();
     //Challenge7_EleveMention();
     //Challenge8_Alphabet();
-    Challenge9_DateFormate();
+    //Challenge9_DateFormate();
+    //Challenge10_RandomeDay();
+    Challenge11_TimeCompare();
+
 
 }
 
@@ -255,7 +258,7 @@ int  GetYear(char dat[]){
             is_mont = true;
             i++;
         }
-        
+
         if(dat[i] == '/' && is_mont && !is_year){
             is_year = true;
             i++;
@@ -280,6 +283,79 @@ void ConverstMont(int MM , char cnvMM[]){
      else if(MM == 11) strcpy(cnvMM , "November");
      else if(MM == 12) strcpy(cnvMM , "December");
 }
+
+
+void Challenge10_RandomeDay(){
+
+    char str[1];
+    time_t t;
+
+   /* Intializes random number generator */
+   srand((unsigned) time(&t));
+
+   printf("s : show random day       other : exit\n");
+   gets(str);
+
+   if (strcmp(str , "s") == 0){
+        puts("");
+        if((rand() % 7) == 0) puts("Monday");
+        else if((rand() % 7) == 1) puts("Tuesday");
+        else if((rand() % 7) == 2) puts("Wednesday");
+        else if((rand() % 7) == 3) puts("Thursday");
+        else if((rand() % 7) == 4) puts("Friday");
+        else if((rand() % 7) == 5) puts("Saturday");
+        else if((rand() % 7) == 6) puts("Sunday");
+        else puts("ERROR !!! "); // had l error ma3raftch min kayji hhhhhhhh
+        puts("");
+        Challenge10_RandomeDay(); // bach yb9a dima 5edem
+   }
+
+}
+
+
+void Challenge11_TimeCompare(){
+    int hh_1 , mm_1 , ss_1;
+    int hh_2 , mm_2 , ss_2;
+
+    puts("____________ Input first moment _____________");
+
+    printf("enter the hour (hh) :");
+    scanf("%d" , &hh_1);
+
+    printf("enter the minute (mm) :");
+    scanf("%d" , &mm_1);
+
+    printf("enter the second (ss) :");
+    scanf("%d" , &ss_1);
+
+    puts("____________ Input second moment _____________");
+
+    printf("enter the hour (hh) :");
+    scanf("%d" , &hh_2);
+
+    printf("enter the minute (mm) :");
+    scanf("%d" , &mm_2);
+
+    printf("enter the second (ss) :");
+    scanf("%d" , &ss_2);
+
+
+
+    if(hh_1 > hh_2) puts("the first moment is GREATER than the   second.");
+    else if(mm_1 < mm_2) puts("the first moment is SMALER than the   second.");
+    else {
+        if(mm_1 > mm_2) puts("the first moment is GREATER than the   second.");
+        else if(mm_1 < mm_2) puts("the first moment is SMALER than the   second.");
+        else {
+            if(ss_1 > ss_2) puts("the first moment is GREATER than the   second.");
+            else if(ss_1 < ss_2) puts("the first moment is SMALER than the   second.");
+            else puts("the first moment EQUALS   the  second moment.");
+        }
+    }
+}
+
+
+
 
 
 
@@ -335,6 +411,44 @@ int echanger(int x,int y){
 int sum(int a,int b){
     return a+b;
 }
+<<<<<<< HEAD
+//challenge :10;
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    for(int i =0;i<20;i++){
+    //printf("Hello, World!\n");
+    int random;
+    random = rand() % 7;
+    //printf("%d\n",random);
+    switch (random) {
+        case 0:
+            printf("monday\n");
+            break;
+        case 1:
+            printf("tuesday\n");
+            break;
+        case 2:
+            printf("wensday\n");
+            break;
+        case 3:
+            printf("thursday\n");
+            break;
+        case 4:
+            printf("friday\n");
+            break;
+        case 5:
+            printf("saturday\n");
+            break;
+        case 6:
+            printf("sunday\n");
+            break;
+    }
+    }
+    return 0;
+}
+=======
 
 
 
@@ -365,9 +479,9 @@ void farthtoCls (){
 	scanf("%d", &degree);
 	int result = (degree-32)/1.8;
 	printf("%d Celsius \n" , result);
-		
+
 	if(result <= 0){
-		printf("très froid");
+		printf("trï¿½s froid");
 	}else if (result <= 25){
 		printf("froid");
 	}else if (result <= 35){
@@ -380,12 +494,12 @@ void farthtoCls (){
 // Second Challenge: (Paire ou Impaire)
 
 void Paire_Impaire(){
-	
+
 	int num;
 	printf("enter your number: ");
 	scanf("%d", &num);
 	int numtest = num % 2;
-	
+
 	if(numtest == 1){
 		printf("impaire");
 	} else if(numtest == 0){
@@ -396,13 +510,13 @@ void Paire_Impaire(){
 // Third Challenge: (Permutation sous condition)
 
 void Permutation(){
-	
+
 	int n1, n2;
 	printf("Enter your first number: ");
 	scanf("%d", &n1);
 	printf("Enter your second number: ");
 	scanf("%d", &n2);
-	
+
 	if(n1 < n2){
 		printf("%d est inferieur que %d", n2, n1);
 	} else if (n1 > n2){
@@ -410,7 +524,7 @@ void Permutation(){
 	} else {
 		printf("les deux valeurs sont identiques");
 	}
-	
+
 }
 
 // 4th Challenge: (somme ou triple de somme de deux entieres)
@@ -421,7 +535,7 @@ void sommeoutriple(){
 	scanf("%d", &n1);
 	printf("Enter your second number: ");
 	scanf("%d", &n2);
-	
+
 	if (n1 == n2){
 		printf("Le triple de leur somme = %d", (n1 + n2)*3);
 	} else {
@@ -431,8 +545,8 @@ void sommeoutriple(){
 
 // 5th Challenge: (Calculer une equation de deuxieme degree)
 
-void 2ndEquation(){
-	
+void Equation_2em_degree(){
+
 	printf("Equation de deuxieme degree: aX +/- bX +/- C \n");
 	int a, b, c;
 	double delta, x1, x2;
@@ -443,23 +557,23 @@ void 2ndEquation(){
 	scanf("%d", &b);
 	printf("Enter c : ");
 	scanf("%d", &c);
-	
+
 	delta = (pow(b, 2)) - ((4*a)*c);
 	printf("delta = %.0f \n", delta);
-	
+
 	if (delta > 0) {
 		printf("delta > 0, the equation have two solutions \n");
-		
+
 		x1 = (-b + sqrt(delta))/(2*a);
 		printf("the first solution: %.2f \n", x1);
-		
+
 		x2 = (-b - sqrt(delta))/(2*a);
 		printf("the second solution: %.2f \n", x2);
 	} else if (delta == 0){
 		printf("delta = 0, the equation have one solution \n");
-		
+
 		x1 = (-b)/(2*a);
-		printf("the solution: %.2f", x1);		
+		printf("the solution: %.2f", x1);
 	}else{
 		printf("delta < 0, il n'y a pas de solution");
 	}
@@ -496,3 +610,4 @@ void palindrome(){
 
 
 
+>
