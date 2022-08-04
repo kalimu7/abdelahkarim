@@ -424,7 +424,11 @@ void Challenge12_Point_onThe_Line(){
     puts("\n\n\n\n");
 }
 
+//____________________________CHAPITRE 2 ___________________________________________________
 
+challenge1_AddFunction(int a , int b ){
+
+}
 
 
 
@@ -494,7 +498,6 @@ int echanger(int x,int y){
 int sum(int a,int b){
     return a+b;
 }
-<<<<<<< HEAD
 //challenge :10;
 #include <stdio.h>
 #include <stdlib.h>
@@ -716,12 +719,7 @@ void Moyenne(){
         printf("Mention n'existe pas");
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
 // 8th Challenge: (alphabet)
 
