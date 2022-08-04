@@ -1,9 +1,11 @@
-  #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <math.h>
 #include<string.h>
 #include <time.h>
+
+void Equation_2em_degree();
 
 int main()
 {
@@ -16,9 +18,9 @@ int main()
     //Challenge8_Alphabet();
     //Challenge9_DateFormate();
     //Challenge10_RandomeDay();
-    Challenge11_TimeCompare();
+    //Challenge11_TimeCompare();
 
-
+    Equation_2em_degree();
 }
 
 
@@ -481,7 +483,7 @@ void farthtoCls (){
 	printf("%d Celsius \n" , result);
 
 	if(result <= 0){
-		printf("tr�s froid");
+		printf("tres froid");
 	}else if (result <= 25){
 		printf("froid");
 	}else if (result <= 35){
@@ -579,6 +581,8 @@ void Equation_2em_degree(){
 	}
 }
 
+// 6th challenge (Palindrome ou non ?)
+
 void palindrome(){
 	char str[50];
 	printf("Enter your word: ");
@@ -597,6 +601,39 @@ void palindrome(){
 	} else {
 		printf("le mot n'est pas un palindrome");
 	}
+}
+
+// 7th Challenge: (Moyenne d'eleve)
+
+void Moyenne(){
+    float num;
+    printf("Quell est votre moyenne: ");
+    scanf("%f", &num);
+
+    if (num < 10)
+    {
+        printf("tu es recale");
+    }
+    else if (num >= 10 && num < 12)
+    {
+        printf("Passable");
+    }
+    else if (num >= 12 && num < 14)
+    {
+        printf("Assez bien");
+    }
+    else if (num >= 14 && num < 16)
+    {
+        printf("Bien!");
+    }
+    else if (num >= 16 && num <= 20)
+    {
+        printf("tres bien!!!");
+    }
+    else
+    {
+        printf("Mention n'existe pas");
+    }
 }
 
 
