@@ -4,12 +4,19 @@
 #include <math.h>
 #include<string.h>
 #include <time.h>
+#include <stdbool.h>
 
-void Equation_2em_degree();
+
+/*(constatez que le type de la fonction est bool, donc vous devez créez votre type Bool). */
+typedef int Bool;
+#define true 1
+#define false 0
+
+
 
 int main()
 {
-     //Challenge1_Paire_Impaire();
+    //Challenge1_Paire_Impaire();
     //Challenge3_PermutationSousConditions();
     //Challenge4_some_and_triple();
     //Challenge5_Equation_deuxieme_degre();
@@ -19,10 +26,19 @@ int main()
     //Challenge9_DateFormate();
     //Challenge10_RandomeDay();
     //Challenge11_TimeCompare();
-    Challenge12_Point_onThe_Line();
+    //Challenge12_Point_onThe_Line();
+
+    //____________________________________________     chapter 2 :
+
+    //challenge1_AddFunction(1,2);
+    //challenge2_Fonction_Echanger();
+    Challenge3_Prime_numbers();
 
 
-    //Equation_2em_degree();
+
+
+
+
 }
 
 
@@ -149,8 +165,6 @@ void Challenge9_DateFormate(){
     char dat[10];
     puts("enter the date as format dd/MM/yyyy");
     scanf("%s" , &dat);
-
-
 
 
 
@@ -424,10 +438,41 @@ void Challenge12_Point_onThe_Line(){
     puts("\n\n\n\n");
 }
 
+
+
+
 //____________________________CHAPITRE 2 ___________________________________________________
 
-challenge1_AddFunction(int a , int b ){
+void challenge1_AddFunction(int a , int b ){
+    printf("%d + %d = %d\n" , a , b , a+b);
+}
 
+
+void challenge2_Fonction_Echanger(){ //had challenge 5asna n5edmo b les pointers darouri
+    int a , b ;
+    printf("enter the first number (a) : ");
+    scanf("%d" , &a);
+    printf("enter the second number (b) : ");
+    scanf("%d" , &b);
+
+
+    puts("the numbers a and b before the change : ");
+    printf("a = %d\t\t\tb = %d\n" , a,b);
+
+    Fonction_Echanger(&a , &b); // had function 3tinaha ladress dyal a and b
+
+    puts("the numbers a and b after the change : ");
+    printf("a = %d\t\t\tb = %d\n" , a,b);
+
+
+
+
+}
+void Fonction_Echanger(int* a , int* b){ //had challenge 5asna n5edmo b les pointers darouri
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
 
@@ -436,48 +481,27 @@ challenge1_AddFunction(int a , int b ){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void ChallengeX_Prime_numbers(){
+void Challenge3_Prime_numbers(){
 	int number;
-	bool isPrime = false;
 	printf("enter your number : ");
 	scanf("%d" , &number);
 
-	for(int i =2 ; i <=sqrt(number) ; i++){
-		if(number%i == 0){
-			isPrime = true;
-			break;
-		}
-	}
 
-	if(isPrime)
+	if(isPrime(number))
         printf("this number is Prime");
     else
         printf("this number is not Prime");
+}
+
+Bool  isPrime(int n){
+    int  isPrime = true;
+    for(int i =2 ; i <=sqrt(n) ; i++){
+		if(n%i == 0){
+			isPrime = false;
+			break;
+		}
+	}
+    return isPrime;
 }
 
 
@@ -498,44 +522,6 @@ int echanger(int x,int y){
 int sum(int a,int b){
     return a+b;
 }
-<<<<<<< HEAD
-//challenge :10;
-#include <stdio.h>
-#include <stdlib.h>
-
-int main() {
-    for(int i =0;i<20;i++){
-    //printf("Hello, World!\n");
-    int random;
-    random = rand() % 7;
-    //printf("%d\n",random);
-    switch (random) {
-        case 0:
-            printf("monday\n");
-            break;
-        case 1:
-            printf("tuesday\n");
-            break;
-        case 2:
-            printf("wensday\n");
-            break;
-        case 3:
-            printf("thursday\n");
-            break;
-        case 4:
-            printf("friday\n");
-            break;
-        case 5:
-            printf("saturday\n");
-            break;
-        case 6:
-            printf("sunday\n");
-            break;
-    }
-    }
-    return 0;
-}
- 
 
 
 
@@ -568,7 +554,7 @@ void farthtoCls (){
 	printf("%d Celsius \n" , result);
 
 	if(result <= 0){
-		printf("tres froid");
+		printf("tr�s froid");
 	}else if (result <= 25){
 		printf("froid");
 	}else if (result <= 35){
@@ -666,57 +652,14 @@ void Equation_2em_degree(){
 	}
 }
 
-// 6th challenge (Palindrome ou non ?)
 
-void palindrome(){
-	char str[50];
-	printf("Enter your word: ");
-	scanf("%s", &str);
-	
-	int j;
-	
-	for(int i = 0; i < strlen(str); i++){
-		if(str[i] == strrev(str)[i]){
-			j++;
-		}
-	}
-	
-	if(j == strlen(str)){
-		printf("le mot est un palindrome");
-	} else {
-		printf("le mot n'est pas un palindrome");
-	}
-}
 
-// 7th Challenge: (Moyenne d'eleve)
 
-void Moyenne(){
-    float num;
-    printf("Quell est votre moyenne: ");
-    scanf("%f", &num);
 
-    if (num < 10)
-    {
-        printf("tu es recale");
-    }
-    else if (num >= 10 && num < 12)
-    {
-        printf("Passable");
-    }
-    else if (num >= 12 && num < 14)
-    {
-        printf("Assez bien");
-    }
-    else if (num >= 14 && num < 16)
-    {
-        printf("Bien!");
-    }
-    else if (num >= 16 && num <= 20)
-    {
-        printf("tres bien!!!");
-    }
-    else
-    {
-        printf("Mention n'existe pas");
-    }
-}
+
+
+
+
+
+
+
