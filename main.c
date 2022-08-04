@@ -424,7 +424,11 @@ void Challenge12_Point_onThe_Line(){
     puts("\n\n\n\n");
 }
 
+//____________________________CHAPITRE 2 ___________________________________________________
 
+challenge1_AddFunction(int a , int b ){
+
+}
 
 
 
