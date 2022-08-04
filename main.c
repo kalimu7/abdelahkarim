@@ -1,9 +1,11 @@
-  #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <math.h>
 #include<string.h>
 #include <time.h>
+
+void Equation_2em_degree();
 
 int main()
 {
@@ -20,6 +22,7 @@ int main()
     Challenge12_Point_onThe_Line();
 
 
+    //Equation_2em_degree();
 }
 
 
@@ -491,6 +494,44 @@ int echanger(int x,int y){
 int sum(int a,int b){
     return a+b;
 }
+<<<<<<< HEAD
+//challenge :10;
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    for(int i =0;i<20;i++){
+    //printf("Hello, World!\n");
+    int random;
+    random = rand() % 7;
+    //printf("%d\n",random);
+    switch (random) {
+        case 0:
+            printf("monday\n");
+            break;
+        case 1:
+            printf("tuesday\n");
+            break;
+        case 2:
+            printf("wensday\n");
+            break;
+        case 3:
+            printf("thursday\n");
+            break;
+        case 4:
+            printf("friday\n");
+            break;
+        case 5:
+            printf("saturday\n");
+            break;
+        case 6:
+            printf("sunday\n");
+            break;
+    }
+    }
+    return 0;
+}
+ 
 
 
 
@@ -523,7 +564,7 @@ void farthtoCls (){
 	printf("%d Celsius \n" , result);
 
 	if(result <= 0){
-		printf("tr�s froid");
+		printf("tres froid");
 	}else if (result <= 25){
 		printf("froid");
 	}else if (result <= 35){
@@ -621,14 +662,57 @@ void Equation_2em_degree(){
 	}
 }
 
+// 6th challenge (Palindrome ou non ?)
 
+void palindrome(){
+	char str[50];
+	printf("Enter your word: ");
+	scanf("%s", &str);
+	
+	int j;
+	
+	for(int i = 0; i < strlen(str); i++){
+		if(str[i] == strrev(str)[i]){
+			j++;
+		}
+	}
+	
+	if(j == strlen(str)){
+		printf("le mot est un palindrome");
+	} else {
+		printf("le mot n'est pas un palindrome");
+	}
+}
 
+// 7th Challenge: (Moyenne d'eleve)
 
+void Moyenne(){
+    float num;
+    printf("Quell est votre moyenne: ");
+    scanf("%f", &num);
 
-
-
-
-
-
-
-
+    if (num < 10)
+    {
+        printf("tu es recale");
+    }
+    else if (num >= 10 && num < 12)
+    {
+        printf("Passable");
+    }
+    else if (num >= 12 && num < 14)
+    {
+        printf("Assez bien");
+    }
+    else if (num >= 14 && num < 16)
+    {
+        printf("Bien!");
+    }
+    else if (num >= 16 && num <= 20)
+    {
+        printf("tres bien!!!");
+    }
+    else
+    {
+        printf("Mention n'existe pas");
+    }
+}
