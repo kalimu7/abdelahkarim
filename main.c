@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <math.h>
-#include<string.h>
+#include <string.h>
 #include <time.h>
 #include <stdbool.h>
 
@@ -13,6 +13,10 @@ typedef int Bool;
 #define false 0
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ed45287261822cd412489d3fb2322c2817ffa66b
 
 int main()
 {
@@ -522,6 +526,43 @@ int echanger(int x,int y){
 int sum(int a,int b){
     return a+b;
 }
+//challenge :10;
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    for(int i =0;i<20;i++){
+    //printf("Hello, World!\n");
+    int random;
+    random = rand() % 7;
+    //printf("%d\n",random);
+    switch (random) {
+        case 0:
+            printf("monday\n");
+            break;
+        case 1:
+            printf("tuesday\n");
+            break;
+        case 2:
+            printf("wensday\n");
+            break;
+        case 3:
+            printf("thursday\n");
+            break;
+        case 4:
+            printf("friday\n");
+            break;
+        case 5:
+            printf("saturday\n");
+            break;
+        case 6:
+            printf("sunday\n");
+            break;
+    }
+    }
+    return 0;
+}
+ 
 
 
 
@@ -653,13 +694,66 @@ void Equation_2em_degree(){
 }
 
 
+// 5th Challenge: (Calculer une equation de deuxieme degree)
 
 
+void montion(int num){
+    if (num < 10)
+    {
+        printf("tu es recale");
+    }
+    else if (num >= 10 && num < 12)
+    {
+        printf("Passable");
+    }
+    else if (num >= 12 && num < 14)
+    {
+        printf("Assez bien");
+    }
+    else if (num >= 14 && num < 16)
+    {
+        printf("Bien!");
+    }
+    else if (num >= 16 && num <= 20)
+    {
+        printf("tres bien!!!");
+    }
+    else
+    {
+        printf("Mention n'existe pas");
+    }
+}
 
 
+// 8th Challenge: (alphabet)
 
+void checkalphabet(){
+    char caractere;
+    printf("Enter your character: ");
+    scanf("%c", &caractere);
 
+    char uppstring[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char downstring[] = "abcdefghijklmnopqrstuvwxyz";
 
+    int i;
+    for (i = 0; i < strlen(uppstring); i++)
+    {
+        if (uppstring[i] == caractere)
+        {
+            printf("Votre caractere fait partie d'alphabet \n");
+            printf("Votre caractere est majuscule!");
+            break;
+        }
+        else if (downstring[i] == caractere)
+        {
+            printf("Votre caractere fait partie d'alphabet \n");
+            printf("Votre caractere est minuscule!");
+            break;
+        }
+    }
 
-
-
+    if (i == 26)
+    {
+        printf("Votre caractere ne fait partie d'alphabet!!!!");
+    }
+}
