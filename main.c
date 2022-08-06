@@ -13,10 +13,6 @@ typedef int Bool;
 #define false 0
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ed45287261822cd412489d3fb2322c2817ffa66b
 
 int main()
 {
@@ -697,7 +693,7 @@ void Equation_2em_degree(){
 // 5th Challenge: (Calculer une equation de deuxieme degree)
 
 
-void montion(int num){
+void mention(int num){
     if (num < 10)
     {
         printf("tu es recale");
@@ -755,5 +751,70 @@ void checkalphabet(){
     if (i == 26)
     {
         printf("Votre caractere ne fait partie d'alphabet!!!!");
+    }
+}
+
+// 9th Challenge: (Change date format)
+
+void changeDateFormat(){
+    
+    printf("Format: DD/MM/YYYY \n");
+    int D, M, Y;
+    printf("Enter the day: ");
+    scanf("%d", &D);
+    printf("Enter the month: ");
+    scanf("%d", &M);
+    printf("Enter the Year: ");
+    scanf("%d", &Y);
+    printf("\n");
+    printf("Your input date is: %d-%d-%d\n", D, M, Y);
+    printf("Other format: ");
+
+    if (D >= 1 && Y >= 0 && M >= 1 && M <= 12){
+        if (D <= 31){
+            if(M == 1){
+                printf("%d-January-%d", D, Y);
+            } else if (M == 3){
+                printf("%d-March-%d", D, Y);
+            } else if (M == 5){
+                printf("%d-May-%d", D, Y);
+            } else if (M == 7){
+                printf("%d-July-%d", D, Y);
+            } else if (M == 8){
+                printf("%d-August-%d", D, Y);
+            } else if (M == 10){
+                printf("%d-October-%d", D, Y);
+            } else if (M == 12){
+                printf("%d-December-%d", D, Y);
+            }    
+        }
+        
+        
+        if (D <= 30){
+            if (M == 4){
+                printf("%d-April-%d", D, Y);
+            } else if (M == 6){
+                printf("%d-June-%d", D, Y);
+            } else if (M == 9){
+                printf("%d-September-%d", D, Y);
+            } else if (M == 11){
+                printf("%d-November-%d", D, Y);
+            }
+        } else if (D > 30){
+            printf("Unavailable date!");
+        }
+
+
+        if (D <= 29){
+            if(M == 2){
+                printf("%d-February-%d", D, Y);
+            }
+        } else if (M==2 && D > 29){
+            printf("Unavailable date!");
+        }
+    }
+    else
+    {
+        printf("Unavailable date!!!");
     }
 }
