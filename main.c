@@ -877,3 +877,4 @@ void checkalphabet(){
         printf("Votre caractere ne fait partie d'alphabet!!!!");
     }
 }
+

@@ -141,3 +141,74 @@ int main() {
     }
     return 0;
 }
+
+//challenge 11;there is some better way to do it with less code :)
+#include <stdio.h>
+
+
+int main() {
+    //just to rerun the program many times.
+    for(;;){
+    int H1,M1,S1;
+    int H2,M2,S2;
+    printf("entrer un instant de ka forme HH:MM:SS\n");
+    scanf("%d %d %d",&H1,&M1,&S1);
+    printf("entrer un deuxieme instant de ka forme HH:MM:SS\n");
+    scanf("%d %d %d",&H2,&M2,&S2);
+    if(H1>H2){
+        printf("Le deuxieme instant vient avant le premiere");
+    }else if(H1<H2){
+        printf("Le premier instant vient avant le deuxième");
+    }else if(H1=H2){
+    if(M1>M2){
+        printf("Le deuxieme instant vient avant le premiere");
+    }else if(M1<M2){
+        printf("Le premier instant vient avant le deuxième");
+    }else if(M1==M2){
+        if(S1>S2){
+            printf("Le deuxieme instant vient avant le premiere");
+        }else if(S1<S2){
+            printf("Le premier instant vient avant le deuxième");
+        }else if(S1=S2){
+            printf("is sagit du meme moment\n");
+        }
+    }
+    }
+    printf("\n-------------------------------------------------------------------\n");
+    }
+    return 0;
+}
+// ill do it the 2nd way
+//karim ch12
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    //need to include math library
+    float xa,ya;
+    float xb,yb;
+    float xm,ym;
+    printf("entrer les extremme cordonnee du segmrnt [AB]\n");
+    printf("point A \n");
+    scanf("%f %f",&xa,&ya);
+    printf("point B \n");
+    scanf("%f %f",&xb,&yb);
+    printf("enter point M\n");
+    scanf("%f %f",&xm,&ym);
+    float F =pow((xb-xa),2);
+    float S =pow((yb-ya),2);
+    float AB = sqrt(F+S);
+    printf("la distance AB est :%.2f\n",AB);
+    //AM
+    float AM = sqrt(pow((xm-xa),2)+pow((ym-ya),2));
+    //MB
+    float MB = sqrt(pow((xb-xm),2)+pow((yb-ym),2));
+    printf("%.2f + %.2f = %.2f  \n",AM,MB,AM+MB);
+    if(AM+MB == AB){
+        printf("M appartient a [AB]\n");
+    }else{
+        printf("M appartient pas [AB]\n");
+    }
+    return 0;
+}
