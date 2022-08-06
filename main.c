@@ -757,3 +757,34 @@ void checkalphabet(){
         printf("Votre caractere ne fait partie d'alphabet!!!!");
     }
 }
+
+//karim ch12
+int karim_ch12()
+{
+    //need to include math library
+    float xa,ya;
+    float xb,yb;
+    float xm,ym;
+    printf("entrer les extremme cordonnee du segmrnt [AB]\n");
+    printf("point A \n");
+    scanf("%f %f",&xa,&ya);
+    printf("point B \n");
+    scanf("%f %f",&xb,&yb);
+    printf("enter point M\n");
+    scanf("%f %f",&xm,&ym);
+    float F =pow((xb-xa),2);
+    float S =pow((yb-ya),2);
+    float AB = sqrt(F+S);
+    printf("la distance AB est :%.2f\n",AB);
+    //AM
+    float AM = sqrt(pow((xm-xa),2)+pow((ym-ya),2));
+    //MB
+    float MB = sqrt(pow((xb-xm),2)+pow((yb-ym),2));
+    printf("%.2f + %.2f = %.2f  \n",AM,MB,AM+MB);
+    if(AM+MB == AB){
+        printf("M appartient a [AB]\n");
+    }else{
+        printf("M appartient pas [AB]\n");
+    }
+    return 0;
+}
