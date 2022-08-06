@@ -13,9 +13,12 @@ typedef int Bool;
 #define false 0
 
 
+float  divededby(int n,int a);  //declaration  dala men naw3 float ou double rarrori men declaration hna
+
 
 int main()
 {
+    //________________________________________________________________________________________________     abdellah
     //Challenge1_Paire_Impaire();
     //Challenge3_PermutationSousConditions();
     //Challenge4_some_and_triple();
@@ -28,11 +31,43 @@ int main()
     //Challenge11_TimeCompare();
     //Challenge12_Point_onThe_Line();
 
-    //____________________________________________     chapter 2 :
+    //____________________________________________                  chapter 2 :
 
     //challenge1_AddFunction(1,2);
     //challenge2_Fonction_Echanger();
-    Challenge3_Prime_numbers();
+    //Challenge3_Prime_numbers();
+    //Challenge4_divededby();
+    challenge5_Algorithme_MergeSort();
+
+
+
+
+    //________________________________________________________________________________________________     karim
+
+    //challenge_10_DaysOfTheWeek();
+
+
+
+
+    //________________________________________________________________________________________________     ayoub
+    //farthtoCls();
+
+
+
+
+
+
+    //________________________________________________________________________________________________    yssine
+
+
+
+
+
+
+
+
+
+    //________________________________________________________________________________________________    zakariya
 
 
 
@@ -41,6 +76,10 @@ int main()
 
 }
 
+
+
+
+//******************************************************************************************************************** abdellah Challenges:
 
 void Challenge1_Paire_Impaire(){
 	int number;
@@ -477,10 +516,6 @@ void Fonction_Echanger(int* a , int* b){ //had challenge 5asna n5edmo b les poin
 
 
 
-
-
-
-
 void Challenge3_Prime_numbers(){
 	int number;
 	printf("enter your number : ");
@@ -505,10 +540,100 @@ Bool  isPrime(int n){
 }
 
 
+// challenge 4
+Bool Challenge4_divededby(){
+    int number;
+    printf("enterer un nomber stp : ");
+    scanf("%d" , &number);
+
+    Bool check = true;
+
+    for(int n = 2 ; n <= sqrt(number) ; n++){
+        if(divededby(n , number) == 0){
+            puts("ce nombre n'est pas premier");
+            check = false;
+            break;
+        }
+    }
+    if(check)  puts("ce nombre est premier");
+
+    return check;
+
+}
+float  divededby(int n,int a){
+    return a%n;
+}
+// challenge 5
+void challenge5_Algorithme_MergeSort(){
+    int A[] = {6,2,3,1,9,10,15,13,12,17};
+    int a_size = sizeof(A)/sizeof(A[0]);
+
+    puts("list before MergeSort");
+    for(int i = 0 ; i < a_size ; i++)
+        printf("%d\t" ,A[i] );
+
+
+    puts("\nlist after MergeSort");
+    MergeSort(A , a_size);
+    for(int i = 0 ; i < a_size ; i++)
+        printf("%d\t" ,A[i] );
+}
+void Merge(int* A , int* B , int* M , int a_size , int b_size ){
+    int i=0 , j=0 , k=0;
+
+    while(i<a_size && j < b_size){
+        if(A[i] < B[j]) M[k++] = A[i++];
+        else M[k++] = B[j++];
+    }
+
+    while(i<a_size) M[k++] = A[i++];
+    while(j<b_size) M[k++] = B[j++];
+}
+
+void MergeSort(int *Lst , int lst_size ){
+    int mid ,i , *A , *B;
+    if(lst_size < 2) return;
+    mid = lst_size/2;
+
+    A = (int*)malloc(mid*sizeof(int));
+	B = (int*)malloc((lst_size- mid)*sizeof(int));
+
+	for(i = 0 ; i < mid ; i ++) A[i] = Lst[i];
+	for(i = mid ; i < lst_size ; i++) B[i - mid] = Lst[i];
+
+	MergeSort(A,mid);
+	MergeSort(B,lst_size-mid);
+	Merge(A , B , Lst , mid , lst_size-mid );
+    free(A);
+    free(B);
+}
 
 
 
-//___________________________________________________________________________________________________________ karime challenges
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////******************************************************************************************************************** karime challenges
 //second challenge;
 int echanger(int x,int y){
     int z;
@@ -523,10 +648,9 @@ int sum(int a,int b){
     return a+b;
 }
 //challenge :10;
-#include <stdio.h>
-#include <stdlib.h>
 
-int main() {
+
+void  challenge_10_DaysOfTheWeek() {
     for(int i =0;i<20;i++){
     //printf("Hello, World!\n");
     int random;
@@ -558,27 +682,8 @@ int main() {
     }
     return 0;
 }
- 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Ayoub Challenges:
+// Ayoub Challenges:********************************************************************************************************************
 
 //Chapter I : conditions
 // First Challenge: (Fahrenheit --> Celesius)
@@ -591,7 +696,7 @@ void farthtoCls (){
 	printf("%d Celsius \n" , result);
 
 	if(result <= 0){
-		printf("tr�s froid");
+		printf("tres froid");
 	}else if (result <= 25){
 		printf("froid");
 	}else if (result <= 35){
@@ -689,17 +794,41 @@ void Equation_2em_degree(){
 	}
 }
 
+// 6th challenge (Palindrome ou non ?)
 
+void palindrome()
+{
+    char str[50];
+    printf("Enter your word: ");
+    scanf("%s", &str);
 
+    int j;
 
+    for (int i = 0; i < strlen(str); i++)
+    {
+        if (str[i] == strrev(str)[i])
+        {
+            j++;
+        }
+    }
 
-
-
+    if (j == strlen(str))
+    {
+        printf("le mot est un palindrome");
+    }
+    else
+    {
+        printf("le mot n'est pas un palindrome");
+    }
+}
 
 // 7th Challenge: (donner mention d'un eleve)
 
+void mention(){
+    float num;
+    printf("Quell est votre moyenne: ");
+    scanf("%f", &num);
 
-void mention(int num){
     if (num < 10)
     {
         printf("tu es recale");
@@ -760,33 +889,66 @@ void checkalphabet(){
     }
 }
 
-//karim ch12
-int karim_ch12()
-{
-    //need to include math library
-    float xa,ya;
-    float xb,yb;
-    float xm,ym;
-    printf("entrer les extremme cordonnee du segmrnt [AB]\n");
-    printf("point A \n");
-    scanf("%f %f",&xa,&ya);
-    printf("point B \n");
-    scanf("%f %f",&xb,&yb);
-    printf("enter point M\n");
-    scanf("%f %f",&xm,&ym);
-    float F =pow((xb-xa),2);
-    float S =pow((yb-ya),2);
-    float AB = sqrt(F+S);
-    printf("la distance AB est :%.2f\n",AB);
-    //AM
-    float AM = sqrt(pow((xm-xa),2)+pow((ym-ya),2));
-    //MB
-    float MB = sqrt(pow((xb-xm),2)+pow((yb-ym),2));
-    printf("%.2f + %.2f = %.2f  \n",AM,MB,AM+MB);
-    if(AM+MB == AB){
-        printf("M appartient a [AB]\n");
-    }else{
-        printf("M appartient pas [AB]\n");
+// 9th Challenge: (Change Date format)
+
+void changeDateFormat(){
+    printf("Format: DD/MM/YYYY \n");
+    int D, M, Y;
+    printf("Enter the day: ");
+    scanf("%d", &D);
+    printf("Enter the month: ");
+    scanf("%d", &M);
+    printf("Enter the Year: ");
+    scanf("%d", &Y);
+    printf("Your input date is: %d-%d-%d\n", D, M, Y);
+    printf("Other format: ");
+
+    if (D >= 1 && Y >= 0 && M >= 1 && M <= 12){
+        if (D <= 31){
+            if(M == 1){
+                printf("%d-January-%d", D, Y);
+            } else if (M == 3){
+                printf("%d-March-%d", D, Y);
+            } else if (M == 5){
+                printf("%d-May-%d", D, Y);
+            } else if (M == 7){
+                printf("%d-July-%d", D, Y);
+            } else if (M == 8){
+                printf("%d-August-%d", D, Y);
+            } else if (M == 10){
+                printf("%d-October-%d", D, Y);
+            } else if (M == 12){
+                printf("%d-December-%d", D, Y);
+            }    
+        }
+        
+        
+        if (D <= 30){
+            if (M == 4){
+                printf("%d-April-%d", D, Y);
+            } else if (M == 6){
+                printf("%d-June-%d", D, Y);
+            } else if (M == 9){
+                printf("%d-September-%d", D, Y);
+            } else if (M == 11){
+                printf("%d-November-%d", D, Y);
+            }
+        } else if (D > 30){
+            printf("Unavailable date!");
+        }
+
+
+        if (D <= 29){
+            if(M == 2){
+                printf("%d-February-%d", D, Y);
+            }
+        } else if (M==2 && D > 29){
+            printf("Unavailable date!");
+        }
     }
-    return 0;
+    else
+    {
+        printf("Unavailable date!!!");
+    }
+
 }
