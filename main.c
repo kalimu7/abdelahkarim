@@ -690,7 +690,13 @@ void Equation_2em_degree(){
 }
 
 
-// 5th Challenge: (Calculer une equation de deuxieme degree)
+
+
+
+
+
+
+// 7th Challenge: (donner mention d'un eleve)
 
 
 void mention(int num){
@@ -754,67 +760,33 @@ void checkalphabet(){
     }
 }
 
-// 9th Challenge: (Change date format)
-
-void changeDateFormat(){
-    
-    printf("Format: DD/MM/YYYY \n");
-    int D, M, Y;
-    printf("Enter the day: ");
-    scanf("%d", &D);
-    printf("Enter the month: ");
-    scanf("%d", &M);
-    printf("Enter the Year: ");
-    scanf("%d", &Y);
-    printf("\n");
-    printf("Your input date is: %d-%d-%d\n", D, M, Y);
-    printf("Other format: ");
-
-    if (D >= 1 && Y >= 0 && M >= 1 && M <= 12){
-        if (D <= 31){
-            if(M == 1){
-                printf("%d-January-%d", D, Y);
-            } else if (M == 3){
-                printf("%d-March-%d", D, Y);
-            } else if (M == 5){
-                printf("%d-May-%d", D, Y);
-            } else if (M == 7){
-                printf("%d-July-%d", D, Y);
-            } else if (M == 8){
-                printf("%d-August-%d", D, Y);
-            } else if (M == 10){
-                printf("%d-October-%d", D, Y);
-            } else if (M == 12){
-                printf("%d-December-%d", D, Y);
-            }    
-        }
-        
-        
-        if (D <= 30){
-            if (M == 4){
-                printf("%d-April-%d", D, Y);
-            } else if (M == 6){
-                printf("%d-June-%d", D, Y);
-            } else if (M == 9){
-                printf("%d-September-%d", D, Y);
-            } else if (M == 11){
-                printf("%d-November-%d", D, Y);
-            }
-        } else if (D > 30){
-            printf("Unavailable date!");
-        }
-
-
-        if (D <= 29){
-            if(M == 2){
-                printf("%d-February-%d", D, Y);
-            }
-        } else if (M==2 && D > 29){
-            printf("Unavailable date!");
-        }
+//karim ch12
+int karim_ch12()
+{
+    //need to include math library
+    float xa,ya;
+    float xb,yb;
+    float xm,ym;
+    printf("entrer les extremme cordonnee du segmrnt [AB]\n");
+    printf("point A \n");
+    scanf("%f %f",&xa,&ya);
+    printf("point B \n");
+    scanf("%f %f",&xb,&yb);
+    printf("enter point M\n");
+    scanf("%f %f",&xm,&ym);
+    float F =pow((xb-xa),2);
+    float S =pow((yb-ya),2);
+    float AB = sqrt(F+S);
+    printf("la distance AB est :%.2f\n",AB);
+    //AM
+    float AM = sqrt(pow((xm-xa),2)+pow((ym-ya),2));
+    //MB
+    float MB = sqrt(pow((xb-xm),2)+pow((yb-ym),2));
+    printf("%.2f + %.2f = %.2f  \n",AM,MB,AM+MB);
+    if(AM+MB == AB){
+        printf("M appartient a [AB]\n");
+    }else{
+        printf("M appartient pas [AB]\n");
     }
-    else
-    {
-        printf("Unavailable date!!!");
-    }
+    return 0;
 }

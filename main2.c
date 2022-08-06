@@ -141,3 +141,41 @@ int main() {
     }
     return 0;
 }
+
+//challenge 11;there is some better way to do it with less code :)
+#include <stdio.h>
+
+
+int main() {
+    //just to rerun the program many times.
+    for(;;){
+    int H1,M1,S1;
+    int H2,M2,S2;
+    printf("entrer un instant de ka forme HH:MM:SS\n");
+    scanf("%d %d %d",&H1,&M1,&S1);
+    printf("entrer un deuxieme instant de ka forme HH:MM:SS\n");
+    scanf("%d %d %d",&H2,&M2,&S2);
+    if(H1>H2){
+        printf("Le deuxieme instant vient avant le premiere");
+    }else if(H1<H2){
+        printf("Le premier instant vient avant le deuxième");
+    }else if(H1=H2){
+    if(M1>M2){
+        printf("Le deuxieme instant vient avant le premiere");
+    }else if(M1<M2){
+        printf("Le premier instant vient avant le deuxième");
+    }else if(M1==M2){
+        if(S1>S2){
+            printf("Le deuxieme instant vient avant le premiere");
+        }else if(S1<S2){
+            printf("Le premier instant vient avant le deuxième");
+        }else if(S1=S2){
+            printf("is sagit du meme moment\n");
+        }
+    }
+    }
+    printf("\n-------------------------------------------------------------------\n");
+    }
+    return 0;
+}
+// ill do it the 2nd way
