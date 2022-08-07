@@ -952,3 +952,36 @@ void changeDateFormat(){
     }
 
 }
+
+// 10th Challenge: (Generate random day)
+
+void RandomDay(){
+    srand(time(0));
+    int num = rand() % 7 + 1;
+
+    printf("Your random day: ");
+    switch (num)
+    {
+    case 1:
+        printf("Monday");
+        break;
+    case 2:
+        printf("Tuesday");
+        break;
+    case 3:
+        printf("Wednesday");
+        break;
+    case 4:
+        printf("Thursday");
+        break;
+    case 5:
+        printf("Friday");
+        break;
+    case 6:
+        printf("Saturday");
+        break;
+    case 7:
+        printf("Sunday");
+        break;
+    }
+}
