@@ -837,26 +837,7 @@ void  challenge_10_DaysOfTheWeek() {
     return 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//********************************************************************************************************************Ayoub Challenges:
+// Ayoub Challenges:********************************************************************************************************************
 
 //Chapter I : conditions
 // First Challenge: (Fahrenheit --> Celesius)
@@ -869,7 +850,7 @@ void farthtoCls (){
 	printf("%d Celsius \n" , result);
 
 	if(result <= 0){
-		printf("tr�s froid");
+		printf("tres froid");
 	}else if (result <= 25){
 		printf("froid");
 	}else if (result <= 35){
@@ -967,11 +948,41 @@ void Equation_2em_degree(){
 	}
 }
 
+// 6th challenge (Palindrome ou non ?)
 
-// 5th Challenge: (Calculer une equation de deuxieme degree)
+void palindrome()
+{
+    char str[50];
+    printf("Enter your word: ");
+    scanf("%s", &str);
 
+    int j;
 
-void montion(int num){
+    for (int i = 0; i < strlen(str); i++)
+    {
+        if (str[i] == strrev(str)[i])
+        {
+            j++;
+        }
+    }
+
+    if (j == strlen(str))
+    {
+        printf("le mot est un palindrome");
+    }
+    else
+    {
+        printf("le mot n'est pas un palindrome");
+    }
+}
+
+// 7th Challenge: (donner mention d'un eleve)
+
+void mention(){
+    float num;
+    printf("Quell est votre moyenne: ");
+    scanf("%f", &num);
+
     if (num < 10)
     {
         printf("tu es recale");
@@ -1031,3 +1042,103 @@ void checkalphabet(){
         printf("Votre caractere ne fait partie d'alphabet!!!!");
     }
 }
+<<<<<<< HEAD
+=======
+
+// 9th Challenge: (Change Date format)
+
+void changeDateFormat(){
+    printf("Format: DD/MM/YYYY \n");
+    int D, M, Y;
+    printf("Enter the day: ");
+    scanf("%d", &D);
+    printf("Enter the month: ");
+    scanf("%d", &M);
+    printf("Enter the Year: ");
+    scanf("%d", &Y);
+    printf("Your input date is: %d-%d-%d\n", D, M, Y);
+    printf("Other format: ");
+
+    if (D >= 1 && Y >= 0 && M >= 1 && M <= 12){
+        if (D <= 31){
+            if(M == 1){
+                printf("%d-January-%d", D, Y);
+            } else if (M == 3){
+                printf("%d-March-%d", D, Y);
+            } else if (M == 5){
+                printf("%d-May-%d", D, Y);
+            } else if (M == 7){
+                printf("%d-July-%d", D, Y);
+            } else if (M == 8){
+                printf("%d-August-%d", D, Y);
+            } else if (M == 10){
+                printf("%d-October-%d", D, Y);
+            } else if (M == 12){
+                printf("%d-December-%d", D, Y);
+            }    
+        }
+        
+        
+        if (D <= 30){
+            if (M == 4){
+                printf("%d-April-%d", D, Y);
+            } else if (M == 6){
+                printf("%d-June-%d", D, Y);
+            } else if (M == 9){
+                printf("%d-September-%d", D, Y);
+            } else if (M == 11){
+                printf("%d-November-%d", D, Y);
+            }
+        } else if (D > 30){
+            printf("Unavailable date!");
+        }
+
+
+        if (D <= 29){
+            if(M == 2){
+                printf("%d-February-%d", D, Y);
+            }
+        } else if (M==2 && D > 29){
+            printf("Unavailable date!");
+        }
+    }
+    else
+    {
+        printf("Unavailable date!!!");
+    }
+
+}
+
+// 10th Challenge: (Generate random day)
+
+void RandomDay(){
+    srand(time(0));
+    int num = rand() % 7 + 1;
+
+    printf("Your random day: ");
+    switch (num)
+    {
+    case 1:
+        printf("Monday");
+        break;
+    case 2:
+        printf("Tuesday");
+        break;
+    case 3:
+        printf("Wednesday");
+        break;
+    case 4:
+        printf("Thursday");
+        break;
+    case 5:
+        printf("Friday");
+        break;
+    case 6:
+        printf("Saturday");
+        break;
+    case 7:
+        printf("Sunday");
+        break;
+    }
+}
+>>>>>>> bed647f016b13b584064297c12b6166ea559995f
