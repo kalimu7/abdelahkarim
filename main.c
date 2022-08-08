@@ -985,3 +985,56 @@ void RandomDay(){
         break;
     }
 }
+
+// 11th Challenge: (comparing time)
+
+void ComprTime(){
+    printf("Format: HH:MM:SS \n");
+
+    // first input9
+    int H, M, S;
+    printf("Enter first HH: ");
+    scanf("%d", &H);
+    printf("Enter first MM: ");
+    scanf("%d", &M);
+    printf("Enter first SS: ");
+    scanf("%d", &S);
+    
+    printf("\n");
+    // second input
+    int H1, M1, S1;
+    printf("Enter second HH: ");
+    scanf("%d", &H1);
+    printf("Enter second MM: ");
+    scanf("%d", &M1);
+    printf("Enter second SS: ");
+    scanf("%d", &S1);
+
+    if(H>=0 && H<=23 && M>=0 && S>=0 && M<=59 && S<=59 && H1>=0 && H1<=23 && M1>=0 && S1>=0 && M1<=59 && S1<=59){
+        if(H != H1){
+            if(H < H1){
+                printf("Le premier instant vient avant le deuxieme");
+            } else {
+                printf("Le deuxieme instant vient avant le premier");
+            }
+        } else { // H == H1
+            if (M != M1){
+                if(M < M1){
+                    printf("le premier instant vient avant le deuxieme");
+                } else {
+                    printf("Le deuxieme instant vient avant le premier");
+                }
+            } else { // M == M1
+                if (S < S1){
+                    printf("Le premier instant vient avant le deuxieme");
+                } else if (S > S1) {
+                    printf("Le deuxieme instant vient avant le premier");
+                } else { // S == S1
+                    printf("Il s'agit du meme instant");
+                }
+            }
+        }
+    } else {
+        printf("Unavailable!");
+    }
+}
