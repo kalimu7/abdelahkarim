@@ -212,3 +212,26 @@ int main()
     }
     return 0;
 }
+//second  part:
+//ch2 echanger();
+#include <stdio.h>
+
+int echanger(int *a,int *b){
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int main(){
+    int *p1,*p2;
+    int n,m;
+    p1 = &n;
+    p2= &m;
+    printf("hello world\n");
+    printf("enter two fucking values\n");
+    scanf("%d %d",p1,p2);
+    printf("before echanger()||m= %d ;n= %d \n",n,m);
+    echanger(p1,p2);
+    printf("after echanger()||m= %d ;n= %d \n",n,m);
+    return 0;
+}
