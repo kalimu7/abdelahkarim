@@ -212,3 +212,54 @@ int main()
     }
     return 0;
 }
+//second  part:
+//ch2 echanger();
+#include <stdio.h>
+
+int echanger(int *a,int *b){
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int main(){
+    int *p1,*p2;
+    int n,m;
+    p1 = &n;
+    p2= &m;
+    printf("hello world\n");
+    printf("enter two fucking values\n");
+    scanf("%d %d",p1,p2);
+    printf("before echanger()||m= %d ;n= %d \n",n,m);
+    echanger(p1,p2);
+    printf("after echanger()||m= %d ;n= %d \n",n,m);
+    return 0;
+}
+                
+
+//ch3 isPrime();bool function;
+#include <stdio.h>
+#include <stdbool.h>
+bool isPremier(int a){
+    int i;
+    for(i=2;i<a;i++){
+        if(a % i == 0){
+            return true;
+            break;
+        }
+    }
+    return false;
+}
+int main(){
+    for(;;) {
+        int b;
+        printf("enter A numbers\n");
+        scanf("%d", &b);
+        if (isPremier(b)) {
+            printf("%d is a not prime number", b);
+        } else if (!isPremier(b)) {
+            printf("%d is a prime number", b);
+        }
+        printf("\n-------------------------------------------\n");
+    }
+}

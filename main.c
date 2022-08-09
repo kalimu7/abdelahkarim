@@ -1163,3 +1163,153 @@ void checkalphabet(){
         printf("Votre caractere ne fait partie d'alphabet!!!!");
     }
 }
+
+// 9th Challenge: (Change Date format)
+
+void changeDateFormat(){
+    printf("Format: DD/MM/YYYY \n");
+    int D, M, Y;
+    printf("Enter the day: ");
+    scanf("%d", &D);
+    printf("Enter the month: ");
+    scanf("%d", &M);
+    printf("Enter the Year: ");
+    scanf("%d", &Y);
+    printf("Your input date is: %d-%d-%d\n", D, M, Y);
+    printf("Other format: ");
+
+    if (D >= 1 && Y >= 0 && M >= 1 && M <= 12){
+        if (D <= 31){
+            if(M == 1){
+                printf("%d-January-%d", D, Y);
+            } else if (M == 3){
+                printf("%d-March-%d", D, Y);
+            } else if (M == 5){
+                printf("%d-May-%d", D, Y);
+            } else if (M == 7){
+                printf("%d-July-%d", D, Y);
+            } else if (M == 8){
+                printf("%d-August-%d", D, Y);
+            } else if (M == 10){
+                printf("%d-October-%d", D, Y);
+            } else if (M == 12){
+                printf("%d-December-%d", D, Y);
+            }    
+        }
+        
+        
+        if (D <= 30){
+            if (M == 4){
+                printf("%d-April-%d", D, Y);
+            } else if (M == 6){
+                printf("%d-June-%d", D, Y);
+            } else if (M == 9){
+                printf("%d-September-%d", D, Y);
+            } else if (M == 11){
+                printf("%d-November-%d", D, Y);
+            }
+        } else if (D > 30){
+            printf("Unavailable date!");
+        }
+
+
+        if (D <= 29){
+            if(M == 2){
+                printf("%d-February-%d", D, Y);
+            }
+        } else if (M==2 && D > 29){
+            printf("Unavailable date!");
+        }
+    }
+    else
+    {
+        printf("Unavailable date!!!");
+    }
+
+}
+
+// 10th Challenge: (Generate random day)
+
+void RandomDay(){
+    srand(time(0));
+    int num = rand() % 7 + 1;
+
+    printf("Your random day: ");
+    switch (num)
+    {
+    case 1:
+        printf("Monday");
+        break;
+    case 2:
+        printf("Tuesday");
+        break;
+    case 3:
+        printf("Wednesday");
+        break;
+    case 4:
+        printf("Thursday");
+        break;
+    case 5:
+        printf("Friday");
+        break;
+    case 6:
+        printf("Saturday");
+        break;
+    case 7:
+        printf("Sunday");
+        break;
+    }
+}
+
+// 11th Challenge: (comparing time)
+
+void ComprTime(){
+    printf("Format: HH:MM:SS \n");
+
+    // first input
+    int H, M, S;
+    printf("Enter first HH: ");
+    scanf("%d", &H);
+    printf("Enter first MM: ");
+    scanf("%d", &M);
+    printf("Enter first SS: ");
+    scanf("%d", &S);
+    
+    printf("\n");
+    // second input
+    int H1, M1, S1;
+    printf("Enter second HH: ");
+    scanf("%d", &H1);
+    printf("Enter second MM: ");
+    scanf("%d", &M1);
+    printf("Enter second SS: ");
+    scanf("%d", &S1);
+
+    if(H>=0 && H<=23 && M>=0 && S>=0 && M<=59 && S<=59 && H1>=0 && H1<=23 && M1>=0 && S1>=0 && M1<=59 && S1<=59){
+        if(H != H1){
+            if(H < H1){
+                printf("Le premier instant vient avant le deuxieme");
+            } else {
+                printf("Le deuxieme instant vient avant le premier");
+            }
+        } else { // H == H1
+            if (M != M1){
+                if(M < M1){
+                    printf("le premier instant vient avant le deuxieme");
+                } else {
+                    printf("Le deuxieme instant vient avant le premier");
+                }
+            } else { // M == M1
+                if (S < S1){
+                    printf("Le premier instant vient avant le deuxieme");
+                } else if (S > S1) {
+                    printf("Le deuxieme instant vient avant le premier");
+                } else { // S == S1
+                    printf("Il s'agit du meme instant");
+                }
+            }
+        }
+    } else {
+        printf("Unavailable!");
+    }
+}
