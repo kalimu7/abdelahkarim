@@ -1192,3 +1192,63 @@ void ComprTime(){
         printf("Unavailable!");
     }
 }
+
+// 12th challenge (Savoir si une point appartient a un segment ou non)
+
+void Segment(void){
+    printf("Ce programme calcule si une point est appartient a un segment ou non en utilisant la formule au dessous: \n");
+    printf("https://lucidar.me/fr/mathematics/check-if-a-point-belongs-on-a-line-segment/ \n"); 
+    
+    double Ax, Ay, Bx, By;
+    // Take the A cordinates
+
+    printf("----------------------Premier cordonnes------------------------\n");
+
+    printf("entrer X de premier extremite du segment: ");
+    scanf("%lf", &Ax);
+    printf("entrer Y de premier extremite du segment: ");
+    scanf("%lf", &Ay);
+
+    printf("----------------------deuxieme cordonnes------------------------\n");
+
+    // Take the B cordinates
+    printf("entrer X de deuxieme extremite du segment: ");
+    scanf("%lf", &Bx);
+    printf("entrer Y de deuxieme extremite du segment: ");
+    scanf("%lf", &By);
+
+    printf("----------------------cordonnes de votre point------------------\n");
+
+    // Take the C cordinates
+    double Cx, Cy;
+    printf("entrer X de votre point: ");
+    scanf("%lf", &Cx);
+    printf("entrer Y de votre point: ");
+    scanf("%lf", &Cy);
+
+    // Calculate "les cordonnees des vecteurs"
+    //AB
+    double Xab = Bx - Ax;
+    double Yab = By - Ay;
+    //AC
+    double Xac = Cx - Ax;
+    double Yac = Cy - Ay;
+
+    //Calculer le produit vectoriel pour savoir si les trois points est alignees (AB*AC = Xab*Yac + Xac*Yab)
+    double produitvectoriel = (Xab * Yac) - (Xac * Yab);
+
+    if(produitvectoriel == 0){
+        
+        /* Calculer le produit scalaire KAC et le carrée scalaire KAB et les comparer pour savoir si C est entre A et B
+        il faut que KAB soit positive est inferieur de KAC */
+        double ACprodscalre = (Xab * Xac) + (Yab * Yac);
+        double ABcarreescalre = pow(Xab, 2) + pow(Yab, 2);
+    
+        if (ACprodscalre > 0 && ACprodscalre < ABcarreescalre){
+            printf("Votre point appartient au segment");
+        }
+    
+    } else {
+        printf("le point n'appartient pas au segment");
+    }
+}
