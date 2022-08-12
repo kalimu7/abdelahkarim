@@ -988,7 +988,8 @@ void  challenge_10_DaysOfTheWeek() {
 
 
 
-//********************************************************************************************************************Ayoub Challenges:
+/*Ayoub Challenges:
+******************************************************************************************************** */:
 
 //Chapter I : conditions
 // First Challenge: (Fahrenheit --> Celesius)
@@ -1001,7 +1002,7 @@ void farthtoCls (){
 	printf("%d Celsius \n" , result);
 
 	if(result <= 0){
-		printf("tr�s froid");
+		printf("tres froid");
 	}else if (result <= 25){
 		printf("froid");
 	}else if (result <= 35){
@@ -1065,7 +1066,7 @@ void sommeoutriple(){
 
 // 5th Challenge: (Calculer une equation de deuxieme degree)
 
-void Equation_2em_degree(){
+void Equation_2eme_degree(){
 
 	printf("Equation de deuxieme degree: aX +/- bX +/- C \n");
 	int a, b, c;
@@ -1099,11 +1100,41 @@ void Equation_2em_degree(){
 	}
 }
 
+// 6th challenge (Palindrome ou non ?)
 
-// 5th Challenge: (Calculer une equation de deuxieme degree)
+void palindrome()
+{
+    char str[50];
+    printf("Enter your word: ");
+    scanf("%s", &str);
 
+    int j;
 
-void montion(int num){
+    for (int i = 0; i < strlen(str); i++)
+    {
+        if (str[i] == strrev(str)[i])
+        {
+            j++;
+        }
+    }
+
+    if (j == strlen(str))
+    {
+        printf("le mot est un palindrome");
+    }
+    else
+    {
+        printf("le mot n'est pas un palindrome");
+    }
+}
+
+// 7th Challenge: (Donner la mention d'un eleve)
+
+void mention(){
+    float num;
+    printf("entrer votre note: ");
+    scanf("%f", &num);
+
     if (num < 10)
     {
         printf("tu es recale");
@@ -1129,7 +1160,6 @@ void montion(int num){
         printf("Mention n'existe pas");
     }
 }
-
 
 // 8th Challenge: (alphabet)
 
@@ -1316,7 +1346,7 @@ void ComprTime(){
 
 // 12th challenge (Savoir si une point appartient a un segment ou non)
 
-void Segment(void){
+void Segment(){
     printf("Ce programme calcule si une point est appartient a un segment ou non en utilisant la formule au dessous: \n");
     printf("https://lucidar.me/fr/mathematics/check-if-a-point-belongs-on-a-line-segment/ \n"); 
     
@@ -1381,3 +1411,4 @@ int add(int a, int b)
 {
     return a + b;
 }
+
