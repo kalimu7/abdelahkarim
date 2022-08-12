@@ -235,3 +235,31 @@ int main(){
     printf("after echanger()||m= %d ;n= %d \n",n,m);
     return 0;
 }
+                
+
+//ch3 isPrime();bool function;
+#include <stdio.h>
+#include <stdbool.h>
+bool isPremier(int a){
+    int i;
+    for(i=2;i<a;i++){
+        if(a % i == 0){
+            return true;
+            break;
+        }
+    }
+    return false;
+}
+int main(){
+    for(;;) {
+        int b;
+        printf("enter A numbers\n");
+        scanf("%d", &b);
+        if (isPremier(b)) {
+            printf("%d is a not prime number", b);
+        } else if (!isPremier(b)) {
+            printf("%d is a prime number", b);
+        }
+        printf("\n-------------------------------------------\n");
+    }
+}

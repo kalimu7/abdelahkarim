@@ -39,7 +39,12 @@ int main()
     //Challenge4_divededby();
     //challenge5_Algorithme_MergeSort();
     //challenge6_Algorithme_BubbleSort();
-    Challenge7_Algorithme_de_tri_rapide();
+    //Challenge7_Algorithme_de_tri_rapide();
+    //Challenge8_Recherche_Binaire();
+    //Challenge9_Recherche_Lineaire();
+    //Challenge10_CarreTable_element();
+    //Challenge11_Permutation();
+    Challenge12_fonction_Tabe_Inserer();
 
 
 
@@ -764,9 +769,136 @@ void Display(int array[] , int length){
     puts("\n");
 }
 
+//___________________________________Challenge8.
+
+void Challenge8_Recherche_Binaire(){
+    int length = 1000;
+    int Tab[length];
+    Initializer_Tab(Tab , length);
+    Display_8(Tab , length);
+    int val = 667;
+    int pos = Recherche_Binaire(Tab , 0 , length , val);
+
+    printf("la position de (%d)  est : %d\n" , val , pos);
+
+}
+
+void Initializer_Tab(int Tab[] ,int length){
+    for(int i = 0 ; i < length ; i++ )
+        Tab[i] = i;
+}
+void Display_8(int array[] , int length){
+    for(int i=0 ; i<length ; i++)
+        printf("%d\t" , array[i]);
+    puts("\n_________________________\n\n");
+}
+int Recherche_Binaire(int Tab[] ,int start , int end , int val){
+
+    while(start<=end){
+        int mid = (start+end)/2;
+
+        if(Tab[mid] == val)
+            return mid;
+        if(Tab[mid] > val)
+            end = mid - 1;
+        else start = mid + 1;
+
+    }
+    return -1;
+}
+
+
+// challenge_9
+void Challenge9_Recherche_Lineaire(){
+    int array[] = {2,34,54,1,25,90,643,1,4,687,8975,2,12};
+    int length = sizeof(array)/sizeof(array[0]);
+
+    Display(array , length);
+
+    int val = 34;
+    int pos;
+    pos =  Recherche_Lineaire(  array ,   length ,   val);
+
+    printf("la position de (%d)  est : %d\n" , val , pos);
+
+
+}
+
+int Recherche_Lineaire(int array[] , int length , int val){
+    for(int i=0 ; i<length ; i++)
+        if(array[i] == val)  return i;
+    return -1;
+
+}
+
+// challenge 10
+void Challenge10_CarreTable_element(){
+    int array[] = {2,34,54,1,25,90,643,1,4,687,8975,2,12};
+    int length = sizeof(array)/sizeof(array[0]);
+
+    Display(array , length);
+
+    Affiche_Carre_1(array , length);
+
+    for(int i = 0 ; i < length ; i++){
+        Affiche_Carre_2(array[i]);
+    }
+    puts("");
 
 
 
+}
+
+void Affiche_Carre_1(int array[] , int length){
+    for(int i = 0 ; i < length ; i++){
+        printf("%d\t" , array[i]*array[i]);
+    }
+    puts("");
+}
+
+void Affiche_Carre_2(int var){
+     printf("%d\t" , var*var);
+}
+
+//challenge 11
+
+void Challenge11_Permutation(){
+    float a , b;
+    printf("enter a :");
+    scanf("%f" , &a);
+    printf("enter b :");
+    scanf("%f" , &b);
+
+    float temp = a;
+    a = b;
+    b = temp;
+
+    printf("a =  %f\nb =  %f\n" , a , b);
+
+}
+
+//challenge12
+
+void Challenge12_fonction_Tabe_Inserer(){
+    int array[] = {2,34,54,1,25,90,643,1,4,687,8975,2,12};
+    int length = sizeof(array)/sizeof(array[0]);
+
+    Display(array , length);
+
+    Insere_Number(array , length , 88 , 6);
+    Display(array , length);
+
+
+}
+
+void Insere_Number(int array[] , int length , int number , int position){
+
+    if(position>=0 && position <length){
+        array[position] = number;
+    }
+}
+
+ 
 
 
 
@@ -837,7 +969,26 @@ void  challenge_10_DaysOfTheWeek() {
     return 0;
 }
 
-// Ayoub Challenges:********************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//********************************************************************************************************************Ayoub Challenges:
 
 //Chapter I : conditions
 // First Challenge: (Fahrenheit --> Celesius)
@@ -850,7 +1001,7 @@ void farthtoCls (){
 	printf("%d Celsius \n" , result);
 
 	if(result <= 0){
-		printf("tres froid");
+		printf("tr�s froid");
 	}else if (result <= 25){
 		printf("froid");
 	}else if (result <= 35){
@@ -948,41 +1099,11 @@ void Equation_2em_degree(){
 	}
 }
 
-// 6th challenge (Palindrome ou non ?)
 
-void palindrome()
-{
-    char str[50];
-    printf("Enter your word: ");
-    scanf("%s", &str);
+// 5th Challenge: (Calculer une equation de deuxieme degree)
 
-    int j;
 
-    for (int i = 0; i < strlen(str); i++)
-    {
-        if (str[i] == strrev(str)[i])
-        {
-            j++;
-        }
-    }
-
-    if (j == strlen(str))
-    {
-        printf("le mot est un palindrome");
-    }
-    else
-    {
-        printf("le mot n'est pas un palindrome");
-    }
-}
-
-// 7th Challenge: (donner mention d'un eleve)
-
-void mention(){
-    float num;
-    printf("Quell est votre moyenne: ");
-    scanf("%f", &num);
-
+void montion(int num){
     if (num < 10)
     {
         printf("tu es recale");
