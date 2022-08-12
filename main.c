@@ -44,7 +44,11 @@ int main()
     //Challenge9_Recherche_Lineaire();
     //Challenge10_CarreTable_element();
     //Challenge11_Permutation();
-    Challenge12_fonction_Tabe_Inserer();
+    //Challenge12_fonction_Tabe_Inserer();
+    //Challenge13_MemoirDinamique();
+    //Challenge14_DynamyqueMemoryAllocation();
+    //Challenge15_Trier();
+    Challenge16_Some_Recursive();
 
 
 
@@ -898,7 +902,210 @@ void Insere_Number(int array[] , int length , int number , int position){
     }
 }
 
- 
+//challenge 13
+
+void Challenge13_MemoirDinamique(){
+    //_______________________________________________ my memoir dynmiqye
+    int default_size = 15;
+
+    int* total_size = &default_size; ////default size is 15
+    char *ptr_list = calloc(*total_size , sizeof(char));
+
+
+
+    ProgrammRunning(ptr_list , total_size);
+
+
+}
+
+void ProgrammRunning(char *Ptr_list , int *total_size){
+    char input[2];
+    Bool Stop = false;
+
+
+
+    while(!Stop){
+        puts("sh : show list    ad : add char       mm : modifier tille de  memoir     sm : show memory     ex : close program");
+        scanf("%s" , &input);
+
+        if(strcmp(input , "sh") == 0){
+           ShowList(Ptr_list);
+        }
+        else if(strcmp(input , "ad")== 0){
+            Add_character(Ptr_list , total_size);
+        }
+        else if(strcmp(input , "sm")== 0){
+            ShowMemry(Ptr_list , total_size);
+        }
+        else if(strcmp(input , "mm")== 0){
+            Change_Memory(Ptr_list , total_size);
+        }
+        else if(strcmp(input , "ex")== 0){
+            free(Ptr_list);
+            Stop = true;
+            puts("closed ...");
+        }
+        else{
+            puts("selection error !!!!");
+        }
+    }
+}
+
+void Add_character(char* ptr_list , int* total_size ){
+    char str[50] ;
+
+
+
+    int start = strlen(ptr_list);
+    int actuly_size = start;
+
+    if(actuly_size < *total_size ){
+        printf("Enter a string : ");
+        scanf("%s" , str);
+        int  end = strlen(str);
+
+        for(int i = start ; i < start + end ; i++){
+            if(i==*total_size){
+                puts("STACK OVER FLOW !!!!");
+                break;
+            }
+            *(ptr_list + i) = str[i - start];
+        }
+        actuly_size = strlen(ptr_list);
+    }
+   else puts("can't add memory full !!!");
+}
+
+
+void ShowList(char* ptr_list){
+    if(strlen(ptr_list) == 0) puts("this list is empty");
+    else
+        for(int i=0 ; i<strlen(ptr_list) ; i++)
+            printf("%c" , ptr_list[i]);
+    printf("\n\n");
+}
+
+void ShowMemry(char* ptr_list , int* total_size){
+    printf("Used Memory  :  %d (char)\n"  , strlen(ptr_list));
+    printf("Total Memory  :  %d (char)\n"  , *total_size);
+}
+
+void Change_Memory(char* ptr_list , int* total_size){
+    printf("enter the new size of this list :  ");
+    int new_size;
+    scanf("%d" , &new_size);
+    if(new_size  > strlen(ptr_list)){
+         *total_size = new_size;
+        ptr_list = realloc( ptr_list , new_size*sizeof(char));
+    }
+    else puts("Not Possible : new size < actually size");
+
+}
+
+
+
+
+//Challenge 14 :
+
+void Challenge14_DynamyqueMemoryAllocation(){
+
+    int sizeX = 5;
+    int sizeY = 3;
+    int **Tab;
+
+    Table_2d_Reservation(&Tab , sizeX , sizeY);
+    Table_2d_Lecteur(&Tab , sizeX , sizeY);
+    Table_2d_Afichage(&Tab , sizeX , sizeY);
+    Table_2d_Liberation(&Tab , sizeX);
+
+}
+
+
+void Table_2d_Reservation(int ***Tab , int sizeX , int sizeY){
+    *Tab = (int**) malloc(sizeX*sizeof(int*));
+    for(int i=0 ; i<sizeX ; i++){
+         *(*Tab + i)  =  (int*) malloc(sizeY*sizeof(int));
+    }
+}
+
+void Table_2d_Lecteur(int ***Tab , int sizeX , int sizeY){
+    for(int i=0 ; i<sizeX ; i++){
+         for(int j=0 ; j<sizeY ; j++){
+             *(*(*Tab + j) +i)  = 404;
+        }
+    }
+
+}
+
+
+void Table_2d_Afichage(int ***Tab , int sizeX , int sizeY){
+    for(int i=0 ; i<sizeX ; i++){
+         for(int j=0 ; j<sizeY ; j++){
+            printf("%d\t" ,  *(*(*Tab + j) + i));
+        }
+        printf("\n");
+    }
+
+}
+
+
+void Table_2d_Liberation(int ***Tab , int sizeX){
+    for(int i=0 ; i<sizeX ; i++){
+        free(*(*Tab + i));
+    }
+
+    free(*Tab);
+
+}
+
+//Challenge 15 :
+
+void Challenge15_Trier(){
+    int Table[] = {12,1,3,9,0,1,2,5,7,8,5,432,11,3,9};
+    int length = sizeof(Table) / sizeof(Table[0]);
+
+    Trier(Table , length);
+
+    for(int i=0 ; i<length ; i++)
+        printf("%d\t" , Table[i]);
+    printf("\n");
+}
+
+void Trier(int Table[] , int length){
+      for(int i=0 ; i<length ; i++){
+        for(int j=i ; j<length ; j++){
+            if(Table[i] > Table[j]){
+                int Temp = Table[i];
+                Table[i] = Table[j];
+                Table[j] = Temp;
+            }
+        }
+      }
+}
+
+
+//Challenge 16 :
+void Challenge16_Some_Recursive(){
+    int input;
+    printf("enter your number STP :");
+    scanf("%d" , &input);
+
+    int som = SomeRecursive(input);
+
+    printf("1 + 2 + ... + %d =  %d" , input , som);
+
+}
+
+
+int SomeRecursive(int input){
+    if(input == 0) return;
+    return input + SomeRecursive(input - 1);
+}
+
+//*********************************************************************************************************chapter 3
+
+
+
 
 
 
@@ -989,7 +1196,7 @@ void  challenge_10_DaysOfTheWeek() {
 
 
 /*Ayoub Challenges:
-******************************************************************************************************** */:
+******************************************************************************************************** */
 
 //Chapter I : conditions
 // First Challenge: (Fahrenheit --> Celesius)
@@ -1224,10 +1431,10 @@ void changeDateFormat(){
                 printf("%d-October-%d", D, Y);
             } else if (M == 12){
                 printf("%d-December-%d", D, Y);
-            }    
+            }
         }
-        
-        
+
+
         if (D <= 30){
             if (M == 4){
                 printf("%d-April-%d", D, Y);
@@ -1304,7 +1511,7 @@ void ComprTime(){
     scanf("%d", &M);
     printf("Enter first SS: ");
     scanf("%d", &S);
-    
+
     printf("\n");
     // second input
     int H1, M1, S1;
@@ -1348,8 +1555,8 @@ void ComprTime(){
 
 void Segment(){
     printf("Ce programme calcule si une point est appartient a un segment ou non en utilisant la formule au dessous: \n");
-    printf("https://lucidar.me/fr/mathematics/check-if-a-point-belongs-on-a-line-segment/ \n"); 
-    
+    printf("https://lucidar.me/fr/mathematics/check-if-a-point-belongs-on-a-line-segment/ \n");
+
     double Ax, Ay, Bx, By;
     // Take the A cordinates
 
@@ -1394,11 +1601,11 @@ void Segment(){
         il faut que KAB soit positive est inferieur de KAC */
         double ACprodscalre = (Xab * Xac) + (Yab * Yac);
         double ABcarreescalre = pow(Xab, 2) + pow(Yab, 2);
-    
+
         if (ACprodscalre > 0 && ACprodscalre < ABcarreescalre){
             printf("Votre point appartient au segment");
         }
-    
+
     } else {
         printf("le point n'appartient pas au segment");
     }
@@ -1411,4 +1618,3 @@ int add(int a, int b)
 {
     return a + b;
 }
-
