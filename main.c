@@ -1359,7 +1359,7 @@ void Segment(void){
     double produitvectoriel = (Xab * Yac) - (Xac * Yab);
 
     if(produitvectoriel == 0){
-        
+
         /* Calculer le produit scalaire KAC et le carrée scalaire KAB et les comparer pour savoir si C est entre A et B
         il faut que KAB soit positive est inferieur de KAC */
         double ACprodscalre = (Xab * Xac) + (Yab * Yac);
@@ -1372,4 +1372,12 @@ void Segment(void){
     } else {
         printf("le point n'appartient pas au segment");
     }
+}
+
+// Chapter II : Functions
+// First Challenge: (add function to add two numbers)
+
+int add(int a, int b)
+{
+    return a + b;
 }
