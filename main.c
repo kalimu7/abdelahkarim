@@ -11,6 +11,7 @@
 typedef int Bool;
 #define true 1
 #define false 0
+#define pi 3.1415926535897
 
 
 float  divededby(int n,int a);  //declaration  dala men naw3 float ou double rarrori men declaration hna
@@ -48,7 +49,18 @@ int main()
     //Challenge13_MemoirDinamique();
     //Challenge14_DynamyqueMemoryAllocation();
     //Challenge15_Trier();
-    Challenge16_Some_Recursive();
+    //Challenge16_Some_Recursive();
+
+
+     //____________________________________________                  chapter 3 :
+
+    //Challenge1_Affichage_Informations();
+    //Challenge2_Fahrenheit_To_degre_Celsius();
+    //Challenge7_Calcule_Sous_Form_Decial();
+    //Challenge9_Distance_entre_deux_points();
+    //Challenge10_Cercle_Circonference();
+    //Challenge12_chiffresInvers();
+    Challenge13_ConverstTo_octal_hexadecimal();
 
 
 
@@ -1103,14 +1115,172 @@ int SomeRecursive(int input){
 }
 
 //*********************************************************************************************************chapter 3
+//challenge 1
+void Challenge1_Affichage_Informations(){
+        //Nom, prénom , Age , Sexe et numéro de téléphone.
+        char Name[25] , Prenom[25] , Sex[25] , Tell[25];
+        int Age;
+
+        printf("enter your first name : ");
+        scanf("%s" , &Name);
+
+        printf("enter your last name : ");
+        scanf("%s" , &Prenom);
+
+        printf("enter your Sex : ");
+        scanf("%s" , &Sex);
+
+        printf("enter your phone number : ");
+        scanf("%s" , &Tell);
+
+        printf("enter your first Age : ");
+        scanf("%d" , &Age);
+
+
+        printf("Prenom : %s\tNom : %s\n" , Name , Prenom);
+        printf("Age : %d\tSex: %s\n" , Age , Sex);
+        printf("Numero de telephone : %s\n", Tell);
+
+}
+
+//challenge 2
+void Challenge2_Fahrenheit_To_degre_Celsius(){
+    printf("Entree la temperature en Fahrenheit : ");
+    int C;
+    scanf("%d" , &C);
+
+    float F = (float) (C*1.8)+32;
+
+    printf("la temperature en  Fahrenheit est : %f\n " , F);
+
+}
+
+
+//Challenge 7 : Calcule et affichage résultat en format décimal
+
+void Challenge7_Calcule_Sous_Form_Decial(){
+    int  a , b;
+    printf("enter the first number : ");
+    scanf("%d" , &a);
+
+    printf("enter the first number : ");
+    scanf("%d" , &b);
+
+    printf("\n%d + %d = %d\n" , a,b,a+b);
+    printf("%d - %d = %d\n" , a,b,a-b);
+    printf("%d * %d = %d\n" , a,b,a*b);
+    if(b!=0){
+        float c = (float) a/b;
+        printf("%d / %d = %f\n" , a,b,c);
+        char mod = '%';
+        printf("%d  %c %d = %d\n" , a,mod,b,a%b);
+    }
+}
+
+//Challenge 9 : Distance entre deux points
+void Challenge9_Distance_entre_deux_points(){
+    int x1 , x2 , y1 , y2;
+    float dist;
+    printf("FIRST POINT :");
+    printf("enter x1 :");
+    scanf("%d" , &x1);
+    printf("enter y1 :");
+    scanf("%d" , &y1);
+
+    printf("SECONDE POINT :");
+    printf("enter x2 :");
+    scanf("%d" , &x2);
+    printf("enter y2 :");
+    scanf("%d" , &y2);
+
+    int X = x2-x1 , Y = y2-y1;
+
+
+    dist = sqrt(X*X + Y*Y);
+
+    printf("\n\nla deistance entr les deux pont est : %f\n\n" , dist);
+
+}
+
+//Challenge 10 : Circonférence d'un cercle
+void Challenge10_Cercle_Circonference(){
+    int r  ; float c;
+    printf("entre le rayonr R STP : ");
+    scanf("%d" , &r);
+
+    c = 2*pi*r;
+
+    printf("le Circonférence de cette  cercle  est : %f\n" , c);
+}
+
+//Challenge 12 : Nombre entier à trois chiffres en ordre inverse
+void Challenge12_chiffresInvers(){
+    int x;
+    printf("enter a 3 digit number  : ");
+    scanf("%d" , &x);
+
+    int n1 ,n2 ,n3;
+    n1 = x/100;
+    n2 = (x/10) - n1*10;
+    n3 = x -n1*100 - n2*10;
+
+    int inverst_x = n3*100 + n2*10 + n1;
+
+    printf("l'invers de (%d) est (%d)\n" , x , inverst_x);
+
+}
+ //challenge 13 int to  octale et hexadécimale
+
+ void Challenge13_ConverstTo_octal_hexadecimal(){
+     int number;
+    //_____________________________________ 10 to 8
+     printf("enter a integer number :");
+     scanf("%d" , &number);
+     int rest = number;
+     int n_octal = 0 , mod;
+     int multipl = 1;
+
+     while(rest!=0){
+        mod = rest%8;
+        rest=rest/8;
+        n_octal = n_octal + mod*multipl;
+        multipl*=10;
+     }
+
+
+     printf("%d (10) = %d (8)\n\n\n" ,number , n_octal);
+
+
+    //_____________________________________ 10 to 16
+     int n_ex_dic = 0;
+     rest = number;
+
+     char listChifr[100] = "    " , temp_char[] = "    ";
+
+     while(rest!=0){
+        mod = rest%16;
+        rest=rest/16;
+
+        printf("%d\n" , mod);
+
+        if(mod == 10)  strcpy(temp_char , "A");
+        else if(mod == 11)  strcpy(temp_char , "B");
+        else if(mod == 12)  strcpy(temp_char , "C");
+        else if(mod == 13)  strcpy(temp_char , "D");
+        else if(mod == 14)  strcpy(temp_char , "E");
+        else if(mod == 15)  strcpy(temp_char , "F");
+        else itoa(mod , temp_char , 10);
+        strcat(listChifr , temp_char);
 
 
 
+     }
 
 
 
+     printf("%d (10) = %s (16)" , number , strrev(listChifr));
 
-
+ }
 
 
 
