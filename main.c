@@ -11,6 +11,7 @@
 typedef int Bool;
 #define true 1
 #define false 0
+#define pi 3.1415926535897
 
 
 float  divededby(int n,int a);  //declaration  dala men naw3 float ou double rarrori men declaration hna
@@ -44,7 +45,22 @@ int main()
     //Challenge9_Recherche_Lineaire();
     //Challenge10_CarreTable_element();
     //Challenge11_Permutation();
-    Challenge12_fonction_Tabe_Inserer();
+    //Challenge12_fonction_Tabe_Inserer();
+    //Challenge13_MemoirDinamique();
+    //Challenge14_DynamyqueMemoryAllocation();
+    //Challenge15_Trier();
+    //Challenge16_Some_Recursive();
+
+
+     //____________________________________________                  chapter 3 :
+
+    //Challenge1_Affichage_Informations();
+    //Challenge2_Fahrenheit_To_degre_Celsius();
+    //Challenge7_Calcule_Sous_Form_Decial();
+    //Challenge9_Distance_entre_deux_points();
+    //Challenge10_Cercle_Circonference();
+    //Challenge12_chiffresInvers();
+    Challenge13_ConverstTo_octal_hexadecimal();
 
 
 
@@ -898,12 +914,373 @@ void Insere_Number(int array[] , int length , int number , int position){
     }
 }
 
- 
+//challenge 13
+
+void Challenge13_MemoirDinamique(){
+    //_______________________________________________ my memoir dynmiqye
+    int default_size = 15;
+
+    int* total_size = &default_size; ////default size is 15
+    char *ptr_list = calloc(*total_size , sizeof(char));
+
+
+
+    ProgrammRunning(ptr_list , total_size);
+
+
+}
+
+void ProgrammRunning(char *Ptr_list , int *total_size){
+    char input[2];
+    Bool Stop = false;
+
+
+
+    while(!Stop){
+        puts("sh : show list    ad : add char       mm : modifier tille de  memoir     sm : show memory     ex : close program");
+        scanf("%s" , &input);
+
+        if(strcmp(input , "sh") == 0){
+           ShowList(Ptr_list);
+        }
+        else if(strcmp(input , "ad")== 0){
+            Add_character(Ptr_list , total_size);
+        }
+        else if(strcmp(input , "sm")== 0){
+            ShowMemry(Ptr_list , total_size);
+        }
+        else if(strcmp(input , "mm")== 0){
+            Change_Memory(Ptr_list , total_size);
+        }
+        else if(strcmp(input , "ex")== 0){
+            free(Ptr_list);
+            Stop = true;
+            puts("closed ...");
+        }
+        else{
+            puts("selection error !!!!");
+        }
+    }
+}
+
+void Add_character(char* ptr_list , int* total_size ){
+    char str[50] ;
+
+
+
+    int start = strlen(ptr_list);
+    int actuly_size = start;
+
+    if(actuly_size < *total_size ){
+        printf("Enter a string : ");
+        scanf("%s" , str);
+        int  end = strlen(str);
+
+        for(int i = start ; i < start + end ; i++){
+            if(i==*total_size){
+                puts("STACK OVER FLOW !!!!");
+                break;
+            }
+            *(ptr_list + i) = str[i - start];
+        }
+        actuly_size = strlen(ptr_list);
+    }
+   else puts("can't add memory full !!!");
+}
+
+
+void ShowList(char* ptr_list){
+    if(strlen(ptr_list) == 0) puts("this list is empty");
+    else
+        for(int i=0 ; i<strlen(ptr_list) ; i++)
+            printf("%c" , ptr_list[i]);
+    printf("\n\n");
+}
+
+void ShowMemry(char* ptr_list , int* total_size){
+    printf("Used Memory  :  %d (char)\n"  , strlen(ptr_list));
+    printf("Total Memory  :  %d (char)\n"  , *total_size);
+}
+
+void Change_Memory(char* ptr_list , int* total_size){
+    printf("enter the new size of this list :  ");
+    int new_size;
+    scanf("%d" , &new_size);
+    if(new_size  > strlen(ptr_list)){
+         *total_size = new_size;
+        ptr_list = realloc( ptr_list , new_size*sizeof(char));
+    }
+    else puts("Not Possible : new size < actually size");
+
+}
 
 
 
 
+//Challenge 14 :
 
+void Challenge14_DynamyqueMemoryAllocation(){
+
+    int sizeX = 5;
+    int sizeY = 3;
+    int **Tab;
+
+    Table_2d_Reservation(&Tab , sizeX , sizeY);
+    Table_2d_Lecteur(&Tab , sizeX , sizeY);
+    Table_2d_Afichage(&Tab , sizeX , sizeY);
+    Table_2d_Liberation(&Tab , sizeX);
+
+}
+
+
+void Table_2d_Reservation(int ***Tab , int sizeX , int sizeY){
+    *Tab = (int**) malloc(sizeX*sizeof(int*));
+    for(int i=0 ; i<sizeX ; i++){
+         *(*Tab + i)  =  (int*) malloc(sizeY*sizeof(int));
+    }
+}
+
+void Table_2d_Lecteur(int ***Tab , int sizeX , int sizeY){
+    for(int i=0 ; i<sizeX ; i++){
+         for(int j=0 ; j<sizeY ; j++){
+             *(*(*Tab + j) +i)  = 404;
+        }
+    }
+
+}
+
+
+void Table_2d_Afichage(int ***Tab , int sizeX , int sizeY){
+    for(int i=0 ; i<sizeX ; i++){
+         for(int j=0 ; j<sizeY ; j++){
+            printf("%d\t" ,  *(*(*Tab + j) + i));
+        }
+        printf("\n");
+    }
+
+}
+
+
+void Table_2d_Liberation(int ***Tab , int sizeX){
+    for(int i=0 ; i<sizeX ; i++){
+        free(*(*Tab + i));
+    }
+
+    free(*Tab);
+
+}
+
+//Challenge 15 :
+
+void Challenge15_Trier(){
+    int Table[] = {12,1,3,9,0,1,2,5,7,8,5,432,11,3,9};
+    int length = sizeof(Table) / sizeof(Table[0]);
+
+    Trier(Table , length);
+
+    for(int i=0 ; i<length ; i++)
+        printf("%d\t" , Table[i]);
+    printf("\n");
+}
+
+void Trier(int Table[] , int length){
+      for(int i=0 ; i<length ; i++){
+        for(int j=i ; j<length ; j++){
+            if(Table[i] > Table[j]){
+                int Temp = Table[i];
+                Table[i] = Table[j];
+                Table[j] = Temp;
+            }
+        }
+      }
+}
+
+
+//Challenge 16 :
+void Challenge16_Some_Recursive(){
+    int input;
+    printf("enter your number STP :");
+    scanf("%d" , &input);
+
+    int som = SomeRecursive(input);
+
+    printf("1 + 2 + ... + %d =  %d" , input , som);
+
+}
+
+
+int SomeRecursive(int input){
+    if(input == 0) return;
+    return input + SomeRecursive(input - 1);
+}
+
+//*********************************************************************************************************chapter 3
+//challenge 1
+void Challenge1_Affichage_Informations(){
+        //Nom, prénom , Age , Sexe et numéro de téléphone.
+        char Name[25] , Prenom[25] , Sex[25] , Tell[25];
+        int Age;
+
+        printf("enter your first name : ");
+        scanf("%s" , &Name);
+
+        printf("enter your last name : ");
+        scanf("%s" , &Prenom);
+
+        printf("enter your Sex : ");
+        scanf("%s" , &Sex);
+
+        printf("enter your phone number : ");
+        scanf("%s" , &Tell);
+
+        printf("enter your first Age : ");
+        scanf("%d" , &Age);
+
+
+        printf("Prenom : %s\tNom : %s\n" , Name , Prenom);
+        printf("Age : %d\tSex: %s\n" , Age , Sex);
+        printf("Numero de telephone : %s\n", Tell);
+
+}
+
+//challenge 2
+void Challenge2_Fahrenheit_To_degre_Celsius(){
+    printf("Entree la temperature en Fahrenheit : ");
+    int C;
+    scanf("%d" , &C);
+
+    float F = (float) (C*1.8)+32;
+
+    printf("la temperature en  Fahrenheit est : %f\n " , F);
+
+}
+
+
+//Challenge 7 : Calcule et affichage résultat en format décimal
+
+void Challenge7_Calcule_Sous_Form_Decial(){
+    int  a , b;
+    printf("enter the first number : ");
+    scanf("%d" , &a);
+
+    printf("enter the first number : ");
+    scanf("%d" , &b);
+
+    printf("\n%d + %d = %d\n" , a,b,a+b);
+    printf("%d - %d = %d\n" , a,b,a-b);
+    printf("%d * %d = %d\n" , a,b,a*b);
+    if(b!=0){
+        float c = (float) a/b;
+        printf("%d / %d = %f\n" , a,b,c);
+        char mod = '%';
+        printf("%d  %c %d = %d\n" , a,mod,b,a%b);
+    }
+}
+
+//Challenge 9 : Distance entre deux points
+void Challenge9_Distance_entre_deux_points(){
+    int x1 , x2 , y1 , y2;
+    float dist;
+    printf("FIRST POINT :");
+    printf("enter x1 :");
+    scanf("%d" , &x1);
+    printf("enter y1 :");
+    scanf("%d" , &y1);
+
+    printf("SECONDE POINT :");
+    printf("enter x2 :");
+    scanf("%d" , &x2);
+    printf("enter y2 :");
+    scanf("%d" , &y2);
+
+    int X = x2-x1 , Y = y2-y1;
+
+
+    dist = sqrt(X*X + Y*Y);
+
+    printf("\n\nla deistance entr les deux pont est : %f\n\n" , dist);
+
+}
+
+//Challenge 10 : Circonférence d'un cercle
+void Challenge10_Cercle_Circonference(){
+    int r  ; float c;
+    printf("entre le rayonr R STP : ");
+    scanf("%d" , &r);
+
+    c = 2*pi*r;
+
+    printf("le Circonférence de cette  cercle  est : %f\n" , c);
+}
+
+//Challenge 12 : Nombre entier à trois chiffres en ordre inverse
+void Challenge12_chiffresInvers(){
+    int x;
+    printf("enter a 3 digit number  : ");
+    scanf("%d" , &x);
+
+    int n1 ,n2 ,n3;
+    n1 = x/100;
+    n2 = (x/10) - n1*10;
+    n3 = x -n1*100 - n2*10;
+
+    int inverst_x = n3*100 + n2*10 + n1;
+
+    printf("l'invers de (%d) est (%d)\n" , x , inverst_x);
+
+}
+ //challenge 13 int to  octale et hexadécimale
+
+ void Challenge13_ConverstTo_octal_hexadecimal(){
+     int number;
+    //_____________________________________ 10 to 8
+     printf("enter a integer number :");
+     scanf("%d" , &number);
+     int rest = number;
+     int n_octal = 0 , mod;
+     int multipl = 1;
+
+     while(rest!=0){
+        mod = rest%8;
+        rest=rest/8;
+        n_octal = n_octal + mod*multipl;
+        multipl*=10;
+     }
+
+
+     printf("%d (10) = %d (8)\n\n\n" ,number , n_octal);
+
+
+    //_____________________________________ 10 to 16
+     int n_ex_dic = 0;
+     rest = number;
+
+     char listChifr[100] = "    " , temp_char[] = "    ";
+
+     while(rest!=0){
+        mod = rest%16;
+        rest=rest/16;
+
+        printf("%d\n" , mod);
+
+        if(mod == 10)  strcpy(temp_char , "A");
+        else if(mod == 11)  strcpy(temp_char , "B");
+        else if(mod == 12)  strcpy(temp_char , "C");
+        else if(mod == 13)  strcpy(temp_char , "D");
+        else if(mod == 14)  strcpy(temp_char , "E");
+        else if(mod == 15)  strcpy(temp_char , "F");
+        else itoa(mod , temp_char , 10);
+        strcat(listChifr , temp_char);
+
+
+
+     }
+
+
+
+     printf("%d (10) = %s (16)" , number , strrev(listChifr));
+
+ }
 
 
 
@@ -987,7 +1364,7 @@ void  challenge_10_DaysOfTheWeek() {
 
 
 /*Ayoub Challenges:
-******************************************************************************************************** */:
+******************************************************************************************************** */
 
 //Chapter I : conditions
 // First Challenge: (Fahrenheit --> Celesius)
@@ -1223,10 +1600,10 @@ void changeDateFormat(){
                 printf("%d-October-%d", D, Y);
             } else if (M == 12){
                 printf("%d-December-%d", D, Y);
-            }    
+            }
         }
-        
-        
+
+
         if (D <= 30){
             if (M == 4){
                 printf("%d-April-%d", D, Y);
@@ -1303,7 +1680,7 @@ void ComprTime(){
     scanf("%d", &M);
     printf("Enter first SS: ");
     scanf("%d", &S);
-    
+
     printf("\n");
     // second input
     int H1, M1, S1;
@@ -1347,8 +1724,8 @@ void ComprTime(){
 
 void Segment(){
     printf("Ce programme calcule si une point est appartient a un segment ou non en utilisant la formule au dessous: \n");
-    printf("https://lucidar.me/fr/mathematics/check-if-a-point-belongs-on-a-line-segment/ \n"); 
-    
+    printf("https://lucidar.me/fr/mathematics/check-if-a-point-belongs-on-a-line-segment/ \n");
+
     double Ax, Ay, Bx, By;
     // Take the A cordinates
 
@@ -1393,11 +1770,11 @@ void Segment(){
         il faut que KAB soit positive est inferieur de KAC */
         double ACprodscalre = (Xab * Xac) + (Yab * Yac);
         double ABcarreescalre = pow(Xab, 2) + pow(Yab, 2);
-    
+
         if (ACprodscalre > 0 && ACprodscalre < ABcarreescalre){
             printf("Votre point appartient au segment");
         }
-    
+
     } else {
         printf("le point n'appartient pas au segment");
     }
@@ -1410,4 +1787,3 @@ int add(int a, int b)
 {
     return a + b;
 }
-
