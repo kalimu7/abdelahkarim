@@ -919,9 +919,7 @@ void Insere_Number(int array[] , int length , int number , int position){
 
 
 
-////******************************************************************************************************************** karime challenges
-//second challenge;
-int echanger(int x,int y){
+////**************************************z
     int z;
     z=x;
     x=y;
@@ -1068,8 +1066,9 @@ void sommeoutriple(){
 
 void Equation_2eme_degree(){
 
-	printf("Equation de deuxieme degree: aX +/- bX +/- C \n");
-	int a, b, c;
+    printf("We are using this method: https://www.mathematiquesfaciles.com/equations-equation-du-second-degre_2_33929.htm " \n);
+    printf("Equation de deuxieme degree: aX +/- bX +/- C \n");
+    int a, b, c;
 	double delta, x1, x2;
 
 	printf("Enter a : ");
