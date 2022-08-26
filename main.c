@@ -1394,13 +1394,12 @@ void Paire_Impaire(){
 	int num;
 	printf("enter your number: ");
 	scanf("%d", &num);
-	int numtest = num % 2;
 
-	if(numtest == 1){
-		printf("impaire");
-	} else if(numtest == 0){
-		printf("paire");
-	}
+    if (num % 2 == 0){
+        printf("paire");
+    }else{
+        printf("impaire");
+    }
 }
 
 // Third Challenge: (Permutation sous condition)
@@ -1786,4 +1785,35 @@ void Segment(){
 int add(int a, int b)
 {
     return a + b;
+}
+
+// Second Challenge: (exchange values between two variables)
+
+void print_echanger()
+{
+    int a, b;
+    printf("Enter a: ");
+    scanf("%d", &a);
+    printf("Enter b: ");
+    scanf("%d", &b);
+
+    printf("\n");
+    printf("la valeur initial de a est: %d\n", a);
+    printf("la valeur initial de b est: %d\n", b);
+
+    echanger(&a, &b); // take memory adress in a pointer as arguments
+
+    printf("\n");
+    printf("la valeur echangee de a est: %d\n", a);
+    printf("la valeur echangee de b est: %d", b);
+}
+
+/* Take the value from the memory adress
+and exchange it */
+
+int echanger(int *a, int *b)
+{
+    *a = *a + *b;
+    *b = *a - *b;
+    *a = *a - *b;
 }
