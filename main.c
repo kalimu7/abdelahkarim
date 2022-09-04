@@ -1823,10 +1823,21 @@ int echanger(int *a, int *b)
 
 typedef enum bool {false, true} bool;
 
+/* Divide the number by the numbers between 2 and byitself 
+if it's a prime number the j variable will not increase*/
+
 bool ispremier(int num){
-    if(num % num == 0 && num % 1 == 0){
+    int j = 0;
+    for (int i = 2; i < num; i++)
+    {
+        if(num % i == 0){
+            j++;
+        }
+    }
+
+    if(j == 0){
         return true;
-    } else {
+    }else{
         return false;
     }
 }
