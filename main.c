@@ -1817,3 +1817,16 @@ int echanger(int *a, int *b)
     *b = *a - *b;
     *a = *a - *b;
 }
+
+/* Third Challenge: 
+(Creating a bool type {true; false} - Return true if the number is premiere and false if it's not)*/
+
+typedef enum bool {false, true} bool;
+
+bool ispremier(int num){
+    if(num % num == 0 && num % 1 == 0){
+        return true;
+    } else {
+        return false;
+    }
+}
